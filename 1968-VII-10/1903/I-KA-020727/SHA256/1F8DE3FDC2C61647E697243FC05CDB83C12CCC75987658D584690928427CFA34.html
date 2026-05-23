@@ -3,6 +3,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Marck+Script&display=swap" rel="stylesheet">
 
+<script type="text/javascript">
+function toggle_show(id) {
+	document.getElementById(id).style.display = document.getElementById(id).style.display == 'none' ? 'block' : 'none';
+}
+</script>
+
 <style type="text/css">
 body {
   font-family: "Times New Roman", Trebuchet, Arial, Helvetica, sans-serif;
@@ -31,7 +37,7 @@ color: #572d87;
 кредитор и выгодоприобретатель имени гражданина <span class="font-violet">Масленников Евгений Владиславович</span> (гражданство: код страны 810)
 <p>
 бенефициар (выгодоприобретатель) индивидуального лицевого счёта социального обеспечения, имеющий право без доверенности действовать посредством физического лица 
-МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ (гражданство: код страны 643)
+МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ (гражданство: код страны 643) 	<li onClick="toggle_show('bla-bla2')">страховой номер<span id="bla-bla2" style="display: none">00460892329</span>
   <br><!-- hidden -->
   <button onclick="toggleText()">страховой номер</button>
 <span id="myText" style="display: none;">00460892329</span>
