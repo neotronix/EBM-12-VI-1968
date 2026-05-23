@@ -20,8 +20,8 @@
 числа произведена соответствующая запись за № <span class="font-violet">1903</span><br>
 Место регистрации <span class="font-violet">б/ЗАГС<br>Павлодар</span><br>
 Дата выдачи <span class="font-violet">10 VII 1968</span> г.
-
-<p>
+<br>
+<br>
 гражданство (код страны) 810<br>Союз Советских Социалистических Республик (СССР)<br>Казахская ССР (Советская Социалистическая Республика)<br>
 <span class="font-red">Принято за ценность оригинальным бенефициарным владельцем.</span><br>
 SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</details><details><summary>Hash SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</details>Sum: 19681206366227476
