@@ -27,8 +27,7 @@
 </details><details><summary>Hash SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</details>Sum: 19681206366227476
 	
 </p>
-все права защищены © без ущерба, без предубеждения, без передачи прав 
-<details><summary>Электропочта</summary>eugene.maslennikov@gmail.com<br>neotronix.technology@gmail.com</details>
+все права защищены © без ущерба, без предубеждения, без передачи прав <details><summary>Электропочта</summary>eugene.maslennikov@gmail.com<br>neotronix.technology@gmail.com</details>
 
   24 день месяца апреля 2020 года 7528 лѣта  <br>
 статьи 2, 17, 18 Конституции; ст. 1012, 421, 1195, 413, 329 ГК
