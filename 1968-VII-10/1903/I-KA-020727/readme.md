@@ -1,28 +1,16 @@
-<body>
-  <!-- violet color: #3633b8 -->
-  <!-- font-family: "Great Vibes", cursive; 
-  font-family: "Marck Script", cursive; -->
-<a href="https://normativ.kontur.ru/document?moduleId=1&documentId=1312" target="_blank">Декларация прав и свобод человека и гражданина. РСФСР, от 22 ноября 1991 года N 1920-I</a>
-<br>В соответствии с Всеобщей Декларацией прав человека, принятой и провозглашенной Генеральной Ассамблеей ООН 10 декабря 1948 года, Декларацией прав и свобод человека принятой 05 сентября 1991 года № 2393-I съездом народных депутатов СССР, постановлением Верховного Совета РСФСР от 22 ноября 1991 года N 1920-I «О Декларации прав и свобод человека и гражданина».
+<a href="https://normativ.kontur.ru/document?moduleId=1&documentId=1312" target="_blank">Декларация прав и свобод человека и гражданина. РСФСР, от 22 ноября 1991 года N 1920-I</a>  
+В соответствии с Всеобщей Декларацией прав человека, принятой и провозглашенной Генеральной Ассамблеей ООН 10 декабря 1948 года, Декларацией прав и свобод человека принятой 05 сентября 1991 года № 2393-I съездом народных депутатов СССР, постановлением Верховного Совета РСФСР от 22 ноября 1991 года N 1920-I «О Декларации прав и свобод человека и гражданина». 
 <p>
 <span class="font-red" aria-hidden=true><b>Евгений Владиславович Масленников</b></span><br>
 кредитор и выгодоприобретатель имени гражданина <span class="font-violet">Масленников Евгений Владиславович</span> (гражданство: код страны 810)
-</p>
+<p>
 бенефициар (выгодоприобретатель) индивидуального лицевого счёта социального обеспечения, имеющий право без доверенности действовать посредством физического лица 
 МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ (гражданство: код страны 643) 
-<!-- span onClick="toggle_show('bla-bla2')">страховой номер</span> <span id="bla-bla2" style="display: none">00460892329</span -->
-	<div style="display:flex; align-items:flex-end; height:25px;">
-  <div style="border: 0px solid black; float:left; display:block;"><button onclick="toggleText()">страховой номер</button></div>
-  <div style="border: 0px solid black; display:inline-block; float:left;"><span id="myText" style="display: none;">&nbsp;00460892329</span></div>
-</div>
+страховой номер 00460892329
 
-	<div style="border: 0px solid black; display:block; height:20px;"></div>
+<p>
   бенефициарный владелец именной ценной бумаги: <details><summary>Свидетельство о рождении</summary>
-  <!-- div style="background-image: url('../../../../../../../../img/gagarin.jpg') -->
-  <div style="background-color:#e6edc5; padding:20px; width:800px; border: 0px solid black;">
-<div style="display:flex; vertical-align:; align-items:flex-end;">
-  <div style="border: 0px solid black; float:left; width:49%; display:block; vertical-align:;">
-    <div style="text-align:center; text-transform:uppercase; margin-bottom:10px;">Свидетельство о рождении</div>
+Свидетельство о рождении
 фамилия <span class="font-violet">Масленников</span><br>
 имя <span class="font-violet">Евгений</span><br>
 отчество <span class="font-violet">Владиславович</span><br>
@@ -31,35 +19,17 @@
 о чем в книге записей актов гражданского состояния о рождении <span class="font-violet">1968</span> года <span class="font-violet">VII</span> месяца
  <span class="font-violet">10</span>
  числа произведена соответствующая запись за № <span class="font-violet">1903</span><br>
-</div>
-    <div style="height:160px; border: 0px solid black; display:inline-block; vertical-align:bottom; float:right; width:47%; padding-left:; margin-right:0px; margin-left:auto;">
       Место регистрации <span class="font-violet">б/ЗАГС<br>Павлодар</span><br>
-      Дата выдачи <span class="font-violet">10 VII 1968</span> г.<br>
-<div style="text-align:right;">I-КА № 020727</div>
-      </div>
-  </div>
-    <div style="width:; border: 0px solid black; float:; width:; display:; vertical-align:; text-align:center;">
+      Дата выдачи <span class="font-violet">10 VII 1968</span> г.
+  <p>
       гражданство (код страны) 810<br>Союз Советских Социалистических Республик (СССР)<br>Казахская ССР (Советская Социалистическая Республика)<br>
       <span class="font-red">Принято за ценность оригинальным бенефициарным владельцем.</span>
-      </div>
-  </div>
-    Hash SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34
-</details>
-
-<details>
-  <summary>Hash SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34
-</details>
-  Sum: 19681206366227476<br>
-<span hidden>1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</span>
-  <div style="display: none;">1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</div>
-
-<div style="border: 0px solid black; display:block; height:15px;"></div>
-  все права защищены © без ущерба, без предубеждения, без передачи прав <details><summary>Электропочта</summary>eugene.maslennikov@gmail.com<br>neotronix.technology@gmail.com</details>
-<!-- a href="email.html">Электропочта</a -->
+    SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34
+</details><details><summary>Hash SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</details>Sum: 19681206366227476
+	
+</p>
+все права защищены © без ущерба, без предубеждения, без передачи прав <details><summary>Электропочта</summary>eugene.maslennikov@gmail.com<br>neotronix.technology@gmail.com</details>
 <p>
-  24 день месяца апреля 2020 года 7528 лѣта
-  <br>
+  24 день месяца апреля 2020 года 7528 лѣта  <br>
 статьи 2, 17, 18 Конституции; ст. 1012, 421, 1195, 413, 329 ГК
-	</p>
-  <!-- Google - css hex color -->
-</body>
+<!-- Google - css hex color -->
