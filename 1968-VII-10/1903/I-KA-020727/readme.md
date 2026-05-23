@@ -1,31 +1,3 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Marck+Script&display=swap" rel="stylesheet">
-
-<script type="text/javascript">
-function toggle_show(id) {
-	document.getElementById(id).style.display = document.getElementById(id).style.display == 'none' ? 'block' : 'none';
-}
-</script>
-
-<style type="text/css">
-body {
-  font-family: "Times New Roman", Trebuchet, Arial, Helvetica, sans-serif;
-  font-size: 19px;
-  line-height:1.4;
-}
-.font-red {
-  font-style: italic;
-color: #800000;
-}
-.font-violet {
-color: #572d87;
-  font-style: italic;
-  font-weight: bold;
-  font-weight: 700;
-}
-    </style>
 <body>
   <!-- violet color: #3633b8 -->
   <!-- font-family: "Great Vibes", cursive; 
@@ -39,22 +11,10 @@ color: #572d87;
 бенефициар (выгодоприобретатель) индивидуального лицевого счёта социального обеспечения, имеющий право без доверенности действовать посредством физического лица 
 МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ (гражданство: код страны 643) 
 <!-- span onClick="toggle_show('bla-bla2')">страховой номер</span> <span id="bla-bla2" style="display: none">00460892329</span -->
-<!-- hidden -->
 	<div style="display:flex; align-items:flex-end; height:25px;">
   <div style="border: 0px solid black; float:left; display:block;"><button onclick="toggleText()">страховой номер</button></div>
   <div style="border: 0px solid black; display:inline-block; float:left;"><span id="myText" style="display: none;">&nbsp;00460892329</span></div>
 </div>
-<script>
-function toggleText() {
-  var x = document.getElementById("myText");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script>
-<!-- hidden -->
 
 	<div style="border: 0px solid black; display:block; height:20px;"></div>
   бенефициарный владелец именной ценной бумаги: <details><summary>Свидетельство о рождении</summary>
