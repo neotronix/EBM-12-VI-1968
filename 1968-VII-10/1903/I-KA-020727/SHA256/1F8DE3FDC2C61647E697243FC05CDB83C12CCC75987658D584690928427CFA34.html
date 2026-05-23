@@ -40,7 +40,8 @@ color: #572d87;
 МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ (гражданство: код страны 643)
 <!-- span onClick="toggle_show('bla-bla2')">страховой номер</span> <span id="bla-bla2" style="display: none">00460892329</span -->
   <br><!-- hidden -->
-  <button onclick="toggleText()">страховой номер</button> <span id="myText" style="display: none;">00460892329</span>
+  <div style="border: 1px solid black; float:left; display:block;"><button onclick="toggleText()">страховой номер</button></div>
+	<div style="border: 1px solid black; display:inline-block; float:left;"><span id="myText" style="display: none;">00460892329</span></div>
 
 <script>
 function toggleText() {
