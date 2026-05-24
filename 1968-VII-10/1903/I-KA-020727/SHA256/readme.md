@@ -36,5 +36,5 @@
 Настоящая запизьделана в 24 день месяца мая 2026 года 7535 лѣта<br>
 статьи 2, 17, 18 Конституции; ст. 1012, 421, 1195, 413, 329 ГК
 <!-- Google - css hex color -->
-index.md
+<div style="background-image: url('../../../../img/gagarin.jpg'); background-size: cover; background-repeat: no-repeat; display:block; width:500px; height:500px;"></div>
 readme.md
