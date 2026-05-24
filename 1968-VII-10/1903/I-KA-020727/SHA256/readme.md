@@ -15,7 +15,7 @@
 имя <span class="font-violet">Евгений</span><br>
 отчество <span class="font-violet">Владиславович</span><br>
 родился <span class="font-violet">12 VI 1968 г. двенадцатого июня тысяча девятьсот шестьдесят восьмого</span> года<br>
-место рождения: город <span class="font-violet">Павлодар</span><br>
+место рождения ребенка: город <span class="font-violet">Павлодар</span><br>
 о чем в книге записей актов гражданского состояния о рождении <span class="font-violet">1968</span> года <span class="font-violet">VII</span> месяца
  <span class="font-violet">10</span>
  числа произведена соответствующая запись за № <span class="font-violet">1903</span><br>
