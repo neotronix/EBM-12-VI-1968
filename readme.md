@@ -3,4 +3,5 @@
 [**neotronix technology**](https://github.com/neotronix/EBM-12-VI-1968/tree/main/1968-VII-10/1903/I-KA-020727/SHA256)  00460892329  
   
 [eugene.maslennikov@gmail.com](mailto:eugene.maslennikov@gmail.com)  
-[neotronix.technology@gmail.com](mailto:neotronix.technology@gmail.com)
+[neotronix.technology@gmail.com](mailto:neotronix.technology@gmail.com)  
+[PGP public key](pgp/pgp public key 24-05-2026.txt)
