@@ -4,4 +4,4 @@
   
 [eugene.maslennikov@gmail.com](mailto:eugene.maslennikov@gmail.com)  
 [neotronix.technology@gmail.com](mailto:neotronix.technology@gmail.com)  
-[PGP public key](pgp/pgp public key 24-05-2026.txt)
+[PGP public key](pgp/pgp-public-key-24-05-2026.txt)
