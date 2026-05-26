@@ -18,7 +18,7 @@
 место рождения ребенка: город <span class="font-violet" style="color:#270fa9"><b>Павлодар</b></span><br>
 о чем в книге записей актов гражданского состояния о рождении <span class="font-violet" style="color:#270fa9"><b>1968</b></span> года <span class="font-violet" style="color:#270fa9"><b>VII</b></span> месяца <span class="font-violet" style="color:#270fa9"><b>10</b></span> числа произведена соответствующая запись за № <span class="font-violet" style="color:#270fa9"><b>1903</b></span> <i>(на основании медицинского свидетельства о живом рождении)</i><br>
 Место регистрации <span class="font-violet" style="color:#270fa9"><b>б/ЗАГС<br>Павлодар</b></span><br>
-Дата выдачи <span <span class="font-violet" style="color:#270fa9"><b>10 VII 1968</b></span> г.<br>
+Дата выдачи <span class="font-violet" style="color:#270fa9"><b>10 VII 1968</b></span> г.<br>
 I-КА № 020727
 <br>
 <br>
