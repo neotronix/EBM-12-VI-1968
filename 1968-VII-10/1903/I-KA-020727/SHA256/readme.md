@@ -37,4 +37,4 @@
 статьи 2, 17, 18 Конституции; ст. 1012, 421, 1195, 413, 329 ГК
 <!-- Google - css hex color -->
 <img src="../../../../img/gagarin.jpg" width="300px"></img><br>
-readme.md
+readme.md <a href="index.html">index.html</a>
