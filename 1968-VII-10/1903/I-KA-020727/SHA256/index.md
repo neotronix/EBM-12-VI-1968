@@ -29,7 +29,7 @@ SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 24 день месяца апреля 2020 года 7528 лѣта<br>
 все права защищены © без ущерба, без предубеждения, без передачи прав. UCC 1-308.4  
 <details><summary>Электропочта</summary>eugene.maslennikov@gmail.com<br>neotronix.technology@gmail.com</details>
-
+<details><summary>Реквизиты</summary>USDT (Tron TRX) TUPUY7EKQHu54sQABs8sHNxUKhGL3qsxR8<br>USDT (BNB BEP20) 0x41617b6636c9a7b6fef16c568df71d615a177796</details>
 Настоящая запизьделана в 24 день месяца мая 2026 года 7535 лѣта<br>
 статьи 2, 17, 18 Конституции; ст. 1012, 421, 1195, 413, 329 ГК<br>
 <!-- Google - css hex color -->
