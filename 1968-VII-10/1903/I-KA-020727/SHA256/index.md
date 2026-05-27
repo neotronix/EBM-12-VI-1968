@@ -27,10 +27,10 @@ SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 	
 </p>
 24 день месяца апреля 2020 года 7528 лѣта<br>
-все права защищены © без ущерба, без предубеждения, без передачи прав. UCC 1-308.4<br>
-Настоящая запизьделана в 24 день месяца мая 2026 года 7535 лѣта
+все права защищены © без ущерба, без предубеждения, без передачи прав. UCC 1-308.4
 <details><summary>Электропочта</summary>eugene.maslennikov@gmail.com<br>neotronix.technology@gmail.com</details><details><summary>Реквизиты</summary>USDT (Tron TRX) TUPUY7EKQHu54sQABs8sHNxUKhGL3qsxR8<br>BNB (BEP20) 0x41617b6636c9a7b6fef16c568df71d615a177796<br>USDT (TON) UQCPfaB_FpI3wZLOtojBy0flzK2Ad7z48Vl9kxF1BxcXan9b<br>USDT (SOL) BGJxzBPiS7jxDRzDK3fyggKeKFZrmBMzipUTVThpi89T<br><br>USDT (TON) UQAR_Ad0AM6VgBFolic4WiENYw2fo_l8XvsK0DZn66udhHZa<br>BNB (BEP20) 0x80511a9098b7E27665D2229385E1A93f4e6FD176<br> USDT (Tron TRX) TUbka9PUBTG6TT7q3iNrjgJYu7bCEVaDH9<br>USDT (SOL) DeNt4Cs1XWUytMu7C4sqacSFuwvR3jj4HaXoRePSAz7X<br><br></details>
 
-статьи 2, 17, 18 Конституции; ст. 1012, 421, 1195, 413, 329 ГК<br>
+Настоящая запизьделана в 24 день месяца мая 2026 года 7535 лѣта<br>
+статьи 2, 17, 18 Конституции; ст. 1012, 421, 1195, 413, 329 ГК
 <!-- Google - css hex color -->
 index.md
