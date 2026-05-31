@@ -1,0 +1,21 @@
+name: Mirror to GitLab
+
+on:
+  push:
+    branches:
+      - main  # Замените на master, если ваша ветка называется так
+
+jobs:
+  to_gitlab:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Важно: загружает всю историю коммитов для корректного зеркалирования
+
+      - name: Mirror repository
+        uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url: "git@gitlab.com:Neotronix/EBM-12-VI-1968.git"
+          ssh_private_key: ${{ secrets.GITLAB_SSH_PRIVATE_KEY }}
