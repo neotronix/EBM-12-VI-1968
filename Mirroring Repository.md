@@ -1,5 +1,5 @@
 Mirroring Repository  
-ttps://github.com/marketplace/actions/mirroring-repository
+https://github.com/marketplace/actions/mirroring-repository
 
 Key Configuration Details  
 Action Used: pixta-dev/repository-mirroring-action@v1.  
