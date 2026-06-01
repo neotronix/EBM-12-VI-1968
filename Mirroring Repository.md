@@ -1,6 +1,31 @@
 Mirroring Repository  
 https://github.com/marketplace/actions/mirroring-repository
 
+https://github.com/neotronix/EBM-12-VI-1968/settings/secrets/actions  
+Repository secrets > GITLAB_SSH_PRIVATE_KEY
+
+https://gitlab.com/-/user_settings/ssh_keys  
+SSH keys
+
+https://gitlab.com/Neotronix/EBM-12-VI-1968/-/settings/ci_cd  
+CI/CD > Variables
+
+https://github.com/settings/keys  
+SSH keys
+
+https://github.com/neotronix/EBM-12-VI-1968/settings/secrets/actions  
+Repository secrets > GITLAB_SSH_PRIVATE_KEY
+
+https://github.com/neotronix/EBM-12-VI-1968/settings/keys  
+Deploy keys
+
+https://github.com/marketplace/actions/ximaz-repo-mirror
+https://github.com/marketplace/actions/gitlab-sync
+https://github.com/marketplace/actions/git-deploy-action
+https://github.com/marketplace/actions/setup-github-gitlab-version-control-user
+
+---
+
 Key Configuration Details  
 Action Used: pixta-dev/repository-mirroring-action@v1.  
 Checkout Step: fetch-depth: 0 is required to ensure all history and branches are fetched before mirroring.  
