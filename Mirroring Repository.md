@@ -8,7 +8,8 @@ https://gitlab.com/-/user_settings/ssh_keys
 SSH keys
 
 https://gitlab.com/Neotronix/EBM-12-VI-1968/-/settings/ci_cd  
-CI/CD > Variables
+CI/CD > Variables  
+SSH_PRIVATE_KEY
 
 https://github.com/settings/keys  
 SSH keys
