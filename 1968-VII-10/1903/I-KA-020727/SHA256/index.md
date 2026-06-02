@@ -66,7 +66,7 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
   </div>
   
   <div style="border: 0px solid black; float:; text-align:center;">
-      гражданство (код страны) 810 SUR<br><span class="font-red" style="color:#800000">Союз Советских Социалистических Республик (СССР)</span> 810 SUR<br><span style="color:#355e00">Казахская ССР (Советская Социалистическая Республика)</span><br>
+      гражданство (код страны) 810 SUR<br><span class="font-red" style="color:#800000">Союз Советских Социалистических Республик (СССР)</span><br><span style="color:#355e00">Казахская ССР (Советская Социалистическая Республика)</span><br>
 		RWA SHA256: 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 УИП(УПНО) <a href="/EBM-12-VI-1968/cheque/#10445257450000152605202684822020">10445257450000152605202684822020</a>
       </div>
