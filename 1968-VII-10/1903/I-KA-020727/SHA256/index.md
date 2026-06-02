@@ -7,7 +7,7 @@
 бенефициар (выгодоприобретатель) индивидуального лицевого счёта социального обеспечения, страховой номер 00460892329, действующий посредством физического лица МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ (гражданство: код страны 643)
 </p>
 <a href="https://neotronix.github.io/EBM-12-VI-1968/" target="_blank">бенефициарный владелец</a> именных ценных бумаг: <details><summary>Свидетельство о рождении</summary>
-фамилия <span class="font-violet" style="color:#270fa9"><b>Масленников</b></span><br>
+<div style="display:none;">фамилия <span class="font-violet" style="color:#270fa9"><b>Масленников</b></span><br>
 имя <span class="font-violet" style="color:#270fa9"><b>Евгений</b></span><br>
 отчество <span class="font-violet" style="color:#270fa9"><b>Владиславович</b></span><br>
 родился <span class="font-violet" style="color:#270fa9"><b>12 VI 1968 г. двенадцатого июня тысяча девятьсот шестьдесят восьмого</b></span> года<br>
@@ -15,7 +15,7 @@
 о чем в книге записей актов гражданского состояния о рождении <span class="font-violet" style="color:#270fa9"><b>1968</b></span> года <span class="font-violet" style="color:#270fa9"><b>VII</b></span> месяца <span class="font-violet" style="color:#270fa9"><b>10</b></span> числа произведена соответствующая запись за № <span class="font-violet" style="color:#270fa9"><b>1903</b></span> <i>(на основании медицинского свидетельства о живом рождении)</i><br>
 Место регистрации <span class="font-violet" style="color:#270fa9"><b>б/ЗАГС<br>Павлодар</b></span><br>
 Дата выдачи <span class="font-violet" style="color:#270fa9"><b>10 VII 1968</b></span> г.<br>
-I-КА № 020727
+I-КА № 020727</div>
 <br>
 <br>
 <i>гражданство (код страны) 810 SUR<br><span class="font-red" style="color:#800000">Союз Советских Социалистических Республик (СССР)</span> 810 SUR<br><span class="font-red" style="color:#355e00">Казахская ССР (Советская Социалистическая Республика)</span><br>
@@ -26,7 +26,7 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 </p>
 
 
-<div style="background-color:#e6edc5; padding:20px; width:800px; border: 0px solid black;">
+<div style="background-color:#e6edc5; padding:20px; width:100%; border: 0px solid black;">
 <div style="display:flex; vertical-align:; align-items:flex-end;">
   <div style="border: 0px solid black; float:left; width:49%; display:block; vertical-align:;">
     <div style="text-align:center; text-transform:uppercase; margin-bottom:10px;">Свидетельство о рождении</div>
