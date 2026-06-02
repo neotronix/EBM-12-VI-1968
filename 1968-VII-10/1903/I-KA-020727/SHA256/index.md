@@ -34,16 +34,14 @@ color: #572d87;
 о чем в книге записей актов гражданского состояния о рождении <span class="font-violet" style="color:#270fa9"><b>1968</b></span> года <span class="font-violet" style="color:#270fa9"><b>VII</b></span> месяца <span class="font-violet" style="color:#270fa9"><b>10</b></span> числа произведена соответствующая запись за № <span class="font-violet" style="color:#270fa9"><b>1903</b></span> <i>(на основании медицинского свидетельства о живом рождении)</i><br>
 Место регистрации <span class="font-violet" style="color:#270fa9"><b>б/ЗАГС<br>Павлодар</b></span><br>
 Дата выдачи <span class="font-violet" style="color:#270fa9"><b>10 VII 1968</b></span> г.<br>
-I-КА № 020727</div>
+I-КА № 020727
 <br>
 <br>
 <i>гражданство (код страны) 810 SUR<br><span class="font-red" style="color:#800000">Союз Советских Социалистических Республик (СССР)</span> 810 SUR<br><span class="font-red" style="color:#355e00">Казахская ССР (Советская Социалистическая Республика)</span><br>
 <span class="font-red" style="color:#800000">Принято за ценность оригинальным бенефициарным владельцем.</span></i><br>
 RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 УИП(УПНО) <a href="/EBM-12-VI-1968/cheque/#10445257450000152605202684822020">10445257450000152605202684822020</a></details>
-<details><summary>Hash RWA SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</details>Sum: 19681206366227476
-</p>
-
+</div>
 
 <div style="background-color:#e6edc5; padding:20px; width:100%; border: 0px solid black;">
 <div style="display:flex; flex-wrap:wrap; vertical-align:; align-items: flex-end">
@@ -71,7 +69,9 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 УИП(УПНО) <a href="/EBM-12-VI-1968/cheque/#10445257450000152605202684822020">10445257450000152605202684822020</a>
       </div>
   </div>
-
+	
+<details><summary>Hash RWA SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</details>Sum: 19681206366227476
+</p>
 
 24 день месяца апреля 2020 года 7528 лѣта<br>
 все права защищены © без ущерба, без предубеждения, без передачи прав. UCC 1-308.4
