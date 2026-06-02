@@ -58,10 +58,10 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
     <div class="box" style="border: 0px solid black; display:; vertical-align:bottom; float:right; margin-right:0px; margin-left:auto; margin-bottom:0px;">
       Место регистрации <span class="font-violet">б/ЗАГС<br>Павлодар</span><br>
       Дата выдачи <span class="font-violet">10 VII 1968</span> г.<br>
-<span style="text-align:right;">I-КА № 020727</span>
+<div style="text-align:right;">I-КА № 020727</div>
       </div>
 	<br>
-      <div style=text-align:center;"><span class="font-red">Принято за ценность оригинальным бенефициарным владельцем.</span></div>
+      <div style="text-align:center;"><span class="font-red">Принято за ценность оригинальным бенефициарным владельцем.</span></div>
   </div>
   </div>
   
