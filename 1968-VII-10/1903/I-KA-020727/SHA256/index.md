@@ -24,6 +24,36 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 УИП(УПНО) <a href="/EBM-12-VI-1968/cheque/#10445257450000152605202684822020">10445257450000152605202684822020</a></details>
 <details><summary>Hash RWA SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</details>Sum: 19681206366227476
 </p>
+
+
+<div style="background-color:#e6edc5; padding:20px; width:800px; border: 0px solid black;">
+<div style="display:flex; vertical-align:; align-items:flex-end;">
+  <div style="border: 0px solid black; float:left; width:49%; display:block; vertical-align:;">
+    <div style="text-align:center; text-transform:uppercase; margin-bottom:10px;">Свидетельство о рождении</div>
+фамилия <span class="font-violet">Масленников</span><br>
+имя <span class="font-violet">Евгений</span><br>
+отчество <span class="font-violet">Владиславович</span><br>
+родился <span class="font-violet">12 VI 1968 г. двенадцатого июня тысяча девятьсот шестьдесят восьмого</span> года<br>
+место рождения ребенка: город <span class="font-violet">Павлодар</span><br>
+о чем в книге записей актов гражданского состояния о рождении <span class="font-violet">1968</span> года <span class="font-violet">VII</span> месяца
+ <span class="font-violet">10</span>
+ числа произведена соответствующая запись за № <span class="font-violet">1903</span> <i>(на основании медицинского свидетельства о живом рождении)</i><br>
+</div>
+    <div style="height:160px; border: 0px solid black; display:inline-block; vertical-align:bottom; float:right; width:47%; padding-left:; margin-right:0px; margin-left:auto;">
+      Место регистрации <span class="font-violet">б/ЗАГС<br>Павлодар</span><br>
+      Дата выдачи <span class="font-violet">10 VII 1968</span> г.<br>
+<div style="text-align:right;">I-КА № 020727</div>
+      </div>
+  </div>
+    <div style="width:; border: 0px solid black; float:; width:; display:; vertical-align:; text-align:center;">
+      гражданство (код страны) 810 SUR<br><span class="font-red" style="color:#800000">Союз Советских Социалистических Республик (СССР)</span> 810 SUR<br><span class="font-red" style="color:#355e00">Казахская ССР (Советская Социалистическая Республика)</span><br>
+      <span class="font-red">Принято за ценность оригинальным бенефициарным владельцем.</span><br>
+		RWA SHA256: 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
+УИП(УПНО) <a href="/EBM-12-VI-1968/cheque/#10445257450000152605202684822020">10445257450000152605202684822020</a>
+      </div>
+  </div>
+
+
 24 день месяца апреля 2020 года 7528 лѣта<br>
 все права защищены © без ущерба, без предубеждения, без передачи прав. UCC 1-308.4
 <details><summary>Электропочта</summary>eugene.maslennikov@gmail.com<br>neotronix.technology@gmail.com</details><details><summary>Реквизиты</summary>USDT (Tron TRX) TUPUY7EKQHu54sQABs8sHNxUKhGL3qsxR8<br>BNB (BEP20) 0x41617b6636c9a7b6fef16c568df71d615a177796<br>USDT (TON) UQABctUVjqfwWdwwQImcs7Xc9n0lpFatOvtMA1vTuIZN7dF2<br>USDT (SOL) 2owiMAwxEjnS5duiHePNppvgu3WN1eEv9aETUHQYm7GR<br><br>USDT (TON) UQAR_Ad0AM6VgBFolic4WiENYw2fo_l8XvsK0DZn66udhHZa<br>BNB (BEP20) 0x80511a9098b7E27665D2229385E1A93f4e6FD176<br> USDT (Tron TRX) TUbka9PUBTG6TT7q3iNrjgJYu7bCEVaDH9<br>USDT (SOL) DeNt4Cs1XWUytMu7C4sqacSFuwvR3jj4HaXoRePSAz7X<br><br></details>
