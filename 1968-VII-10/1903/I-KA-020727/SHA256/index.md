@@ -47,7 +47,7 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 
 <div style="background-color:#e6edc5; padding:20px; width:100%; border: 0px solid black;">
 <div style="display:flex; flex-wrap:wrap; vertical-align:;">
-  <div style="border: 0px solid black; float:left; width:100%; display:;">
+  <div class="box" style="border: 0px solid black; float:left; width:100%; display:;">
     <div style="text-align:center; text-transform:uppercase; margin-bottom:10px;">Свидетельство о рождении</div>
 фамилия <span class="font-violet">Масленников</span><br>
 имя <span class="font-violet">Евгений</span><br>
@@ -58,7 +58,7 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
  <span class="font-violet">10</span>
  числа произведена соответствующая запись за № <span class="font-violet">1903</span> <i>(на основании медицинского свидетельства о живом рождении)</i><br>
 </div>
-    <div style="border: 0px solid black; display:inline-block; vertical-align:bottom; float:right; width:100%; margin-right:0px; margin-left:auto; margin-bottom:0px;">
+    <div class="box" style="border: 0px solid black; display:inline-block; vertical-align:bottom; float:right; width:100%; margin-right:0px; margin-left:auto; margin-bottom:0px;">
       Место регистрации <span class="font-violet">б/ЗАГС<br>Павлодар</span><br>
       Дата выдачи <span class="font-violet">10 VII 1968</span> г.<br>
 <div style="text-align:right;">I-КА № 020727</div>
