@@ -1,3 +1,16 @@
+<style type="text/css">
+.font-red {
+  font-style: italic;
+color: #800000;
+}
+.font-violet {
+color: #572d87;
+  font-style: italic;
+  font-weight: bold;
+  font-weight: 700;
+}
+    </style>
+<body>
 <a href="https://normativ.kontur.ru/document?moduleId=1&documentId=1312" target="_blank">Декларация прав и свобод человека и гражданина. РСФСР, от 22 ноября 1991 года N 1920-I</a>  
 В соответствии с Всеобщей Декларацией прав человека, принятой и провозглашенной Генеральной Ассамблеей ООН 10 декабря 1948 года, Декларацией прав и свобод человека принятой 05 сентября 1991 года № 2393-I съездом народных депутатов СССР, постановлением Верховного Совета РСФСР от 22 ноября 1991 года N 1920-I «О Декларации прав и свобод человека и гражданина». 
 <p>
@@ -65,3 +78,4 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 <a href="https://github.com/neotronix/EBM-12-VI-1968/tree/main/" target="_blank">I-КА</a> <a href="https://github.com/neotronix/EBM-12-VI-1968/tree/main/1968-VII-10/1903/I-KA-020727/SHA256" target="_blank">020727</a> © <a href="https://neotronix.github.io/EBM-12-VI-1968/" target="_blank">neotronix technology</a><br>
 index.md SHA1 926f2ddfdfd038eff1f16761aea435d3ac1c1b1f
 </p>
+</body>
