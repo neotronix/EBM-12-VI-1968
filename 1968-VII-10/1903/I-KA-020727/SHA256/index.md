@@ -61,7 +61,7 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 <div style="text-align:right;">I-КА № 020727</div>
       </div>
   </div>
-	<div class="font-red" style="width:100%; text-align:center; margin-bottom:20px;">Принято за ценность оригинальным бенефициарным владельцем.</div>
+	<div class="font-red" style="width:100%; text-align:center; padding-bottom:20px;">Принято за ценность оригинальным бенефициарным владельцем.</div>
   </div>
   
   <div style="border: 0px solid black; float:; text-align:center;">
