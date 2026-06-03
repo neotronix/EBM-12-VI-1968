@@ -73,7 +73,8 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
   </details>
 <details><summary>Паспорт</summary>
 	паспорт гражданина IV-ДА 606724 выдан 31 мая 1995 года.
-	<br>гражданство: <span class="font-red" style="color:#800000">Союз Советских Социалистических Республик (СССР)</span> (код страны) 810 SUR
+	<div class="font-red" style="width:100%; text-align:center; padding-bottom:20px;"><i>Принят за ценность оригинальным бенефициарным владельцем.</i></div>
+	гражданство: <span class="font-red" style="color:#800000">Союз Советских Социалистических Республик (СССР)</span> (код страны) 810 SUR
 </details>
 <details><summary>Hash RWA SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</details>Sum: 19681206366227476
 </p>
