@@ -6,7 +6,9 @@
 3. Пополните баланс кошелька в сети ZKsync Era (нативным токеном ETH). Вы можете перевести средства из сети Ethereum с помощью zkSync Bridge или использовать сторонние кросс-чейн мосты (например, Orbiter Finance).  
 
 Шаг 2. Написание и развертывание контракта (Без программирования)  
-Для быстрого создания токена с фиксированной эмиссией удобно использовать сервисы-генераторы, такие как SmartContracts Token Generator https://www.smartcontracts.tools/token-generator/create/zksync/:  
+Для быстрого создания токена с фиксированной эмиссией удобно использовать сервисы-генераторы, такие как SmartContracts Token Generator  
+https://www.smartcontracts.tools/token-generator/create/zksync/  
+https://tokentool.bitbond.com/create-token/asset-token/avalanche  
 https://remix.ethereum.org/#lang=en&optimize&runs=200&evmVersion  
 https://wizard.openzeppelin.com/  
 1. Перейдите на сайт генератора и выберите сеть ZKsync Era.  
