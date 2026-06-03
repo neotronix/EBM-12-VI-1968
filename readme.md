@@ -2,7 +2,7 @@
 ЕВМ © securities 12 VI 1968 1903 1968 VII 10 [I-КА](https://github.com/neotronix/EBM-12-VI-1968/tree/main/1968-VII-10/1903/I-KA-020727/SHA256) [020727](https://neotronix.github.io/EBM-12-VI-1968/1968-VII-10/1903/I-KA-020727/SHA256) IV-ДА 606724 SUR 810 [52°27N 76°94E]  
 [**neotronix technology**](https://github.com/neotronix/EBM-12-VI-1968/tree/main/)  00460892329  
 
-An RWA (real world asset) token backed by a registered security, a birth certificate issued by the Council of People's Deputies of the Republic to one of the people, a real live-born living mæn (not a legal entity or CORPORATE PERSON which is a Strawman). The birth certificate is secured by all the assets of the Treasury, which are secured by the Land and everything in it.
+An RWA (real world asset) backed by a registered security, a birth certificate issued by the Council of People's Deputies of the Republic to one of the people, a real live-born living mæn (not a legal entity or CORPORATE PERSON which is a Strawman). The birth certificate is secured by all the assets of the Treasury, which are backed by the Land and everything in it.
 
 [eugene.maslennikov@gmail.com](mailto:eugene.maslennikov@gmail.com)  
 [neotronix.technology@gmail.com](mailto:neotronix.technology@gmail.com)  
