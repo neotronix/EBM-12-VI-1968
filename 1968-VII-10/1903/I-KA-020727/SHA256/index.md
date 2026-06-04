@@ -43,8 +43,8 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
       Дата выдачи <span class="font-violet">10 VII 1968</span> г.<br>
 <div style="text-align:right;">I-КА № 020727</div>
       </div>
+<div class="font-red" style="width:100%; text-align:center; padding-bottom:;"><i>Принято за ценность оригинальным бенефициарным владельцем.</i></div>
   </div>
-	<div class="font-red" style="width:100%; text-align:center; padding-bottom:10px;"><i>Принято за ценность оригинальным бенефициарным владельцем.</i></div>
   </div>
   
   <div style="border: 0px solid black; float:; text-align:center;">
