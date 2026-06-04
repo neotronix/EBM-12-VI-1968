@@ -59,11 +59,11 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 	гражданство: <span class="font-red" style="color:#800000">Союз Советских Социалистических Республик (СССР)</span> (код страны) 810 SUR
 </details>
 <details><summary>Hash RWA SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</details>Sum: 19681206366227476
-</p><p>
+</p>
 24 день месяца апреля 2020 года 7528 лѣта<br>
 все права защищены © без ущерба, без предубеждения, без передачи прав. UCC 1-308.4
 <details><summary>Электропочта</summary>eugene.maslennikov@gmail.com<br>neotronix.technology@gmail.com</details><details><summary>Реквизиты</summary>USDT (Tron TRX) TUPUY7EKQHu54sQABs8sHNxUKhGL3qsxR8<br>BNB (BEP20) 0x41617b6636c9a7b6fef16c568df71d615a177796<br>USDT (TON) UQABctUVjqfwWdwwQImcs7Xc9n0lpFatOvtMA1vTuIZN7dF2<br>USDT (SOL) 2owiMAwxEjnS5duiHePNppvgu3WN1eEv9aETUHQYm7GR<br><br>USDT (TON) UQAR_Ad0AM6VgBFolic4WiENYw2fo_l8XvsK0DZn66udhHZa<br>BNB (BEP20) 0x80511a9098b7E27665D2229385E1A93f4e6FD176<br> USDT (Tron TRX) TUbka9PUBTG6TT7q3iNrjgJYu7bCEVaDH9<br>USDT (SOL) DeNt4Cs1XWUytMu7C4sqacSFuwvR3jj4HaXoRePSAz7X<br><br></details>
-</p><p>
+<p>
 Настоящая запизьделана в 24 день месяца мая 2026 года 7535 лѣта <!-- SHA1 926f2ddfdfd038eff1f16761aea435d3ac1c1b1f --><br>
 статьи 2, 17, 18 Конституции; ст. 1012, 421, 1195, 413, 329 ГК
 <p>
