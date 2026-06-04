@@ -1,5 +1,5 @@
 ## [original beneficiary owner](https://neotronix.github.io/EBM-12-VI-1968/)
-ЕВМ © securities 12 VI 1968 1903 1968 VII 10 [I-КА](https://github.com/neotronix/EBM-12-VI-1968/tree/main/1968-VII-10/1903/I-KA-020727/SHA256) [020727](https://neotronix.github.io/EBM-12-VI-1968/1968-VII-10/1903/I-KA-020727/SHA256) IV-ДА 606724 SUR 810 [52°27N 76°94E]  
+ЕВМ © 12 VI 1968 1903 1968 VII 10 [I-КА](https://github.com/neotronix/EBM-12-VI-1968/tree/main/1968-VII-10/1903/I-KA-020727/SHA256) [020727](https://neotronix.github.io/EBM-12-VI-1968/1968-VII-10/1903/I-KA-020727/SHA256) IV-ДА 606724 SUR 810 [52°27N 76°94E]  
 [**neotronix technology**](https://github.com/neotronix/EBM-12-VI-1968/tree/main/)  00460892329  
 
 A real world asset (RWA) backed by a registered security, a <a href="/EBM-12-VI-1968/1968-VII-10/1903/I-KA-020727/SHA256/">birth certificate</a> issued by the Council of People's Deputies of the Republic to one of the people, a real live-born living mæn (not a legal entity or CORPORATE PERSON which is a Strawman). The birth certificate is secured by all the assets of the Treasury, which are backed by the Land and everything in it.
