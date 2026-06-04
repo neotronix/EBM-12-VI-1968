@@ -25,9 +25,9 @@ I-КА № 020727
 RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 УИП(УПНО) <a href="/EBM-12-VI-1968/cheque/#10445257450000152605202684822020">10445257450000152605202684822020</a></div>
 
-<div class="box-container-" style="background-color:#e6edc5; border: 1px solid black;">
+<div class="box-container" style="background-color:#e6edc5; border: 0px solid black;">
 <div style="display:flex; flex-wrap:wrap; align-items: flex-end; padding:20px;">
-  <div class="box" style="border: 1px solid black; float:left;">
+  <div class="box" style="border: 0px solid black; float:left;">
     <div style="text-align:center; text-transform:uppercase; margin-bottom:10px;">Свидетельство о рождении</div>
 фамилия <span class="font-violet">Масленников</span><br>
 имя <span class="font-violet">Евгений</span><br>
@@ -38,7 +38,7 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
  <span class="font-violet">10</span>
  числа произведена соответствующая запись за № <span class="font-violet">1903</span> <i>(на основании медицинского свидетельства о живом рождении)</i><br>
 </div>
-    <div class="box" style="border: 1px solid black; display:; vertical-align:bottom; float:right; margin-right:0px; margin-left:auto; margin-bottom:0px;">
+    <div class="box" style="border: 0px solid black; display:; vertical-align:bottom; float:right; margin-right:0px; margin-left:auto; margin-bottom:0px;">
       Место регистрации <span class="font-violet">б/ЗАГС<br>Павлодар</span><br>
       Дата выдачи <span class="font-violet">10 VII 1968</span> г.<br>
 <div style="text-align:right;">I-КА № 020727</div>
