@@ -38,7 +38,7 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
  <span class="font-violet">10</span>
  числа произведена соответствующая запись за № <span class="font-violet">1903</span> <i>(на основании медицинского свидетельства о живом рождении)</i><br>
 </div>	
-    <div class="box" style="border: 1px solid black; vertical-align:bottom; float:right; margin-right:0px; margin-left:auto; margin-bottom:0px; margin: 20px 0 0 auto;">
+    <div class="box" style="border: 0px solid black; vertical-align:bottom; float:right; margin-right:0px; margin-left:auto; margin-bottom:0px; margin: 20px 0 0 auto;">
 <i class="font-red">Принято за ценность правомерным держателем, оригинальным бенефициарным владельцем. Без ущерба, без предубеждения, без передачи прав ©</i><br><br>
       Место регистрации <span class="font-violet">б/ЗАГС<br>Павлодар</span><br>
       Дата выдачи <span class="font-violet">10 VII 1968</span> г.<br>
