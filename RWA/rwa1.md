@@ -8,6 +8,7 @@
 Шаг 2. Написание и развертывание контракта (Без программирования)  
 Для быстрого создания токена с фиксированной эмиссией удобно использовать сервисы-генераторы, такие как SmartContracts Token Generator  
 https://www.smartcontracts.tools/token-generator/create/zksync/  
+https://tools.smithii.io/token-creator/solana  
 https://smithii.io/ru/token-creator/  
 https://tokentool.bitbond.com/create-token/asset-token/avalanche  
 https://remix.ethereum.org/#lang=en&optimize&runs=200&evmVersion  
