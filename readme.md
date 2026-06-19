@@ -8,4 +8,3 @@ A real world asset (RWA) backed by a registered security, a <a href="/EBM-12-VI-
 [neotronix.technology@gmail.com](mailto:neotronix.technology@gmail.com)  
 [PGP public key](pgp/pgp-public-key-24-05-2026.txt)  
 <details><summary>Hash RWA SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<p></p></details>Sum: 19681206366227476
-RWA SHA256: 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34
