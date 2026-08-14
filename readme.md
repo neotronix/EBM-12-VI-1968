@@ -1,4 +1,4 @@
-## [original beneficiary owner real world asset](https://neotronix.github.io/EBM-12-VI-1968/)
+## [liveborn alive original beneficiary owner real world asset](https://neotronix.github.io/EBM-12-VI-1968/)
 ЕВМ © 12 VI 1968 1903 1968 VII 10 [I-КА](/EBM-12-VI-1968/1968-VII-10/1903/I-KA-020727/SHA256) [020727](https://neotronix.github.io/EBM-12-VI-1968/1968-VII-10/1903/I-KA-020727/SHA256) IIIСО 688304 [IV-ДА](/EBM-12-VI-1968/1968-VII-10/1903/I-KA-020727/SHA256) [606724](/EBM-12-VI-1968/1968-VII-10/1903/I-KA-020727/SHA256) SUR 810 [52°27N 76°94E]  
 [**neotronix technology**](/EBM-12-VI-1968/) 00460892329  
 
