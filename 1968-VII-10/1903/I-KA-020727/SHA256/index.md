@@ -3,6 +3,7 @@
 <!-- style type="text/css"></style -->
 <body>
 	<img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Coat_of_arms_of_the_Soviet_Union_(1946–1956).svg" width="70px">
+	<img src="[https://upload.wikimedia.org/wikipedia/commons/9/95/Coat_of_arms_of_the_Soviet_Union_(1946–1956).svg](https://ru.wikipedia.org/wiki/Союз_Советских_Социалистических_Республик#/media/Файл:Flag_of_the_Soviet_Union.svg)" width="100px">
 <p>В соответствии с <a href="https://www.un.org/ru/documents/decl_conv/declarations/declhr.shtml" target="_blank">Всеобщей Декларацией прав человека</a>, принятой и провозглашенной Генеральной Ассамблеей ООН 10 декабря 1948 года, <a href="https://www.un.org/ru/documents/decl_conv/conventions/pactecon.shtml" target="_blank">Международным пактом об экономических, социальных и культурных правах</a>, <a href="https://www.un.org/ru/documents/decl_conv/conventions/pactpol.shtml" target="_blank">Международным пактом о гражданских и политических правах</a>, <a href="https://docs.cntd.ru/document/901836567" target="_blank">Декларацией прав и свобод человека</a> принятой 5 сентября 1991 года <a href="https://base.garant.ru/6334589/" target="_blank">№ 2393-I</a> съездом народных депутатов СССР, постановлением Верховного Совета РСФСР от 22 ноября 1991 года N 1920-I <a href="https://normativ.kontur.ru/document?moduleId=1&documentId=1312" target="_blank">«О Декларации прав и свобод человека и гражданина»</a>. 
 </p>
 <p>
