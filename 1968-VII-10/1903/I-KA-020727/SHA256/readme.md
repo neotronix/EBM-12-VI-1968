@@ -1,4 +1,4 @@
-<img src="https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Coat_of_arms_of_the_Soviet_Union_(1946%E2%80%931956).svg">
+<img src="[https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Coat_of_arms_of_the_Soviet_Union_(1946%E2%80%931956).svg](https://upload.wikimedia.org/wikipedia/commons/9/95/Coat_of_arms_of_the_Soviet_Union_%281946%E2%80%931956%29.svg?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=original)">
 <a href="https://normativ.kontur.ru/document?moduleId=1&documentId=1312" target="_blank">Декларация прав и свобод человека и гражданина. РСФСР, от 22 ноября 1991 года N 1920-I</a>  
 В соответствии с Всеобщей Декларацией прав человека, принятой и провозглашенной Генеральной Ассамблеей ООН 10 декабря 1948 года, Декларацией прав и свобод человека принятой 05 сентября 1991 года № 2393-I съездом народных депутатов СССР, постановлением Верховного Совета РСФСР от 22 ноября 1991 года N 1920-I «О Декларации прав и свобод человека и гражданина». 
 <p>
