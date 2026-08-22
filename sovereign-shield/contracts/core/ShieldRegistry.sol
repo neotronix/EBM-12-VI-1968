@@ -7,7 +7,7 @@ pragma solidity ^0.8.20;
  * @notice Главный реестр, фиксирующий неприкосновенные имена, идентификаторы и документы.
  * @dev Все строковые константы сохранены в оригинальном регистре для исключения разночтений.
  * @dev Используются официальные мнемоники типов документов из Цифрового профиля (Гостех):
- *      RF_PASSPORT, BIRTH_CERT_USSR, SNILS, INN_FL и др.
+ *      RF_PASSPORT, FRGN_PASS, BIRTH_CERT_USSR, SNILS, INN_FL и др.
  */
 contract ShieldRegistry {
     // ============================================================
@@ -172,29 +172,49 @@ contract ShieldRegistry {
     string public constant REGISTRATION_AUTHORITY_CODE = "500-185";
 
     // ============================================================
-    // 5. МАШИНОЧИТАЕМАЯ ЗАПИСЬ (MRZ) — (Юрисдикция 643)
+    // 5. ДАННЫЕ ЗАГРАНИЧНОГО ПАСПОРТА
+    //    Мнемоника Гостеха: FRGN_PASS
     // ============================================================
 
-    string public constant PASSPORT_MRZ_FULL =
-        "PNRUSMASLENNIKOV<<EVGENIQ<VLADISLAVOVI3<<<<<"
-        "4611955333RUS6806123M<<<<<<<3130823500185<52";
+    // ---- Заграничный паспорт (выдан 23 сентября 2011 года) ----
+    string public constant FRGN_PASS_TYPE = "P";
+    string public constant FRGN_PASS_ISSUING_STATE = "RUS";
+    string public constant FRGN_PASS_NUMBER = "71 6238222";
+    string public constant FRGN_PASS_NUMBER_SOLID = "716238222";
 
-    string public constant MRZ_DOC_TYPE_FULL = "PN";
-    string public constant MRZ_DOC_TYPE = "P";
-    string public constant MRZ_DOC_TYPE_EXTRA = "N";
-    string public constant MRZ_ISSUING_STATE = "RUS";
-    string public constant MRZ_SURNAME = "MASLENNIKOV";
-    string public constant MRZ_GIVEN_NAMES = "EVGENIQ<VLADISLAVOVI3";
-    string public constant MRZ_DOCUMENT_NUMBER = "4611955333";
-    string public constant MRZ_DOCUMENT_CHECK_DIGIT = "3";
-    string public constant MRZ_NATIONALITY = "RUS";
-    string public constant MRZ_BIRTH_DATE = "680612";
-    string public constant MRZ_BIRTH_CHECK_DIGIT = "3";
-    string public constant MRZ_SEX = "M";
-    string public constant MRZ_EXPIRY_DATE = "313082";
-    string public constant MRZ_EXPIRY_CHECK_DIGIT = "3";
-    string public constant MRZ_ISSUING_STATE_2 = "RUS";
-    string public constant MRZ_FINAL_CHECK_DIGIT = "2";
+    // Имя в латинице (как в паспорте)
+    string public constant FRGN_PASS_SURNAME = "MASLENNIKOV";
+    string public constant FRGN_PASS_GIVEN_NAME = "EVGENY";
+
+    uint256 public constant FRGN_PASS_ISSUE_YEAR = 2011;
+    uint256 public constant FRGN_PASS_ISSUE_MONTH = 9;
+    uint256 public constant FRGN_PASS_ISSUE_DAY = 23;
+
+    string public constant FRGN_PASS_BIRTH_PLACE = "КАЗАХСТАН / USSR";
+    string public constant FRGN_PASS_AUTHORITY = "ФМС 50022";
+
+    // ---- Машиночитаемая запись заграничного паспорта ----
+    string public constant FRGN_PASS_MRZ_FULL =
+        "P<RUSMASLENNIKOV<<EVGENIY<<<<<<<<<<<<<<<<<<<<"
+        "7162382221RUS6806123M2109239<<<<<<<<<<<<<<06";
+
+    // Разбор MRZ по полям
+    string public constant FRGN_MRZ_DOC_TYPE = "P";
+    string public constant FRGN_MRZ_ISSUING_STATE = "RUS";
+    string public constant FRGN_MRZ_SURNAME = "MASLENNIKOV";
+    string public constant FRGN_MRZ_GIVEN_NAME = "EVGENIY";
+    string public constant FRGN_MRZ_DOC_NUMBER = "716238222";
+    string public constant FRGN_MRZ_CHECK_DIGIT = "1";
+    string public constant FRGN_MRZ_NATIONALITY = "RUS";
+    string public constant FRGN_MRZ_BIRTH_DATE = "680612";
+    string public constant FRGN_MRZ_BIRTH_CHECK = "3";
+    string public constant FRGN_MRZ_SEX = "M";
+    string public constant FRGN_MRZ_EXPIRY_DATE = "210923";
+    string public constant FRGN_MRZ_EXPIRY_CHECK = "9";
+    string public constant FRGN_MRZ_FINAL_DIGIT = "6";
+
+    // ---- Мнемоника типа документа для Гостеха ----
+    string public constant DOC_TYPE_FRGN_PASS = "FRGN_PASS";
 
     // ============================================================
     // 6. ДАННЫЕ АЛЛОДА (СИСТЕМА КООРДИНАТ 1942 Г.) — Юрисдикция СК-42
@@ -447,6 +467,17 @@ contract ShieldRegistry {
         return PASSPORT_2_VARIANTS;
     }
 
+    /**
+     * @dev Проверяет, является ли переданная строка допустимым номером загранпаспорта.
+     */
+    function isValidForeignPassportNumber(string memory passportNumber) public pure returns (bool) {
+        bytes32 hash = keccak256(bytes(passportNumber));
+        return (
+            hash == keccak256(bytes(FRGN_PASS_NUMBER)) ||
+            hash == keccak256(bytes(FRGN_PASS_NUMBER_SOLID))
+        );
+    }
+
     // ============================================================
     // 15. ЕДИНАЯ ЦЕПОЧКА ИДЕНТИЧНОСТИ
     // ============================================================
@@ -464,8 +495,13 @@ contract ShieldRegistry {
         string passport2Series;
         string passport2Number;
         string[] passport2Variants;
+        string foreignPassportNumber;
+        string foreignPassportNumberSolid;
+        string foreignPassportSurname;
+        string foreignPassportGivenName;
         string docTypeBirth;
         string docTypePassport;
+        string docTypeForeignPassport;
         bytes32 identityHash;
     }
 
@@ -515,8 +551,13 @@ contract ShieldRegistry {
             passport2Series: PASSPORT_2_SERIES,
             passport2Number: PASSPORT_2_NUMBER,
             passport2Variants: PASSPORT_2_VARIANTS,
+            foreignPassportNumber: FRGN_PASS_NUMBER,
+            foreignPassportNumberSolid: FRGN_PASS_NUMBER_SOLID,
+            foreignPassportSurname: FRGN_PASS_SURNAME,
+            foreignPassportGivenName: FRGN_PASS_GIVEN_NAME,
             docTypeBirth: DOC_TYPE_BIRTH_CERT_USSR,
             docTypePassport: DOC_TYPE_PASSPORT_USSR,
+            docTypeForeignPassport: DOC_TYPE_FRGN_PASS,
             identityHash: keccak256(abi.encodePacked(
                 BIRTH_NAME,
                 PASSPORT_RF_COPY_FULL_NAME,
@@ -524,10 +565,12 @@ contract ShieldRegistry {
                 CERTIFICATE_SERIES, CERTIFICATE_NUMBER,
                 PASSPORT_1_SERIES, PASSPORT_1_NUMBER,
                 PASSPORT_2_SERIES, PASSPORT_2_NUMBER,
+                FRGN_PASS_NUMBER,
                 DOC_TYPE_BIRTH_CERT_USSR,
-                DOC_TYPE_PASSPORT_USSR
+                DOC_TYPE_PASSPORT_USSR,
+                DOC_TYPE_FRGN_PASS
             ))
-        });
+        );
     }
 
     function getBirthInfo() external view returns (
@@ -599,6 +642,38 @@ contract ShieldRegistry {
             CITIZENSHIP_RF_CODE,
             DOC_TYPE_RF_PASSPORT,
             DOC_TYPE_RF_PASSPORT_COPY
+        );
+    }
+
+    function getForeignPassportInfo() external view returns (
+        string memory docType,
+        string memory issuingState,
+        string memory number,
+        string memory numberSolid,
+        string memory surname,
+        string memory givenName,
+        uint256 issueYear,
+        uint256 issueMonth,
+        uint256 issueDay,
+        string memory birthPlace,
+        string memory authority,
+        string memory mrzFull,
+        string memory docTypeGoTech
+    ) {
+        return (
+            FRGN_PASS_TYPE,
+            FRGN_PASS_ISSUING_STATE,
+            FRGN_PASS_NUMBER,
+            FRGN_PASS_NUMBER_SOLID,
+            FRGN_PASS_SURNAME,
+            FRGN_PASS_GIVEN_NAME,
+            FRGN_PASS_ISSUE_YEAR,
+            FRGN_PASS_ISSUE_MONTH,
+            FRGN_PASS_ISSUE_DAY,
+            FRGN_PASS_BIRTH_PLACE,
+            FRGN_PASS_AUTHORITY,
+            FRGN_PASS_MRZ_FULL,
+            DOC_TYPE_FRGN_PASS
         );
     }
 
@@ -719,6 +794,9 @@ contract ShieldRegistry {
         }
         if (keccak256(typeBytes) == keccak256(bytes("ERN"))) {
             return "ЕРН (Единый регистр населения)";
+        }
+        if (keccak256(typeBytes) == keccak256(bytes("FRGN_PASS"))) {
+            return "Заграничный паспорт";
         }
         return "Неизвестный тип документа";
     }
