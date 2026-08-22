@@ -6,10 +6,13 @@ pragma solidity ^0.8.20;
  * @author Суверен Масленников Е.В. / ATLAS-3I
  * @notice Главный реестр, фиксирующий неприкосновенные имена, идентификаторы и документы.
  * @dev Все строковые константы сохранены в оригинальном регистре для исключения разночтений.
+ * @dev Используются официальные мнемоники типов документов из Цифрового профиля (Гостех):
+ *      RF_PASSPORT, BIRTH_CERT_USSR, SNILS, INN_FL и др.
  */
 contract ShieldRegistry {
     // ============================================================
     // 1. ДАННЫЕ СВИДЕТЕЛЬСТВА О РОЖДЕНИИ (I-КА № 020727)
+    //    Мнемоника Гостеха: BIRTH_CERT_USSR
     // ============================================================
 
     // Полное имя из свидетельства
@@ -47,8 +50,12 @@ contract ShieldRegistry {
     bytes32 public constant BIRTH_CERT_HASH =
         0x1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34;
 
+    // Мнемоника типа документа для Гостеха
+    string public constant DOC_TYPE_BIRTH_CERT_USSR = "BIRTH_CERT_USSR";
+
     // ============================================================
     // 2. ДАННЫЕ ПАСПОРТОВ ГРАЖДАНИНА СССР
+    //    Мнемоника Гостеха: PASSPORT_USSR (история выданных паспортов)
     // ============================================================
 
     string public constant PASSPORT_1_SERIES = "III-СО";
@@ -66,8 +73,12 @@ contract ShieldRegistry {
     string public constant CITIZENSHIP = "Союз Советских Социалистических Республик (СССР)";
     string public constant CITIZENSHIP_CODE = "810";
 
+    // Мнемоника типа документа для Гостеха
+    string public constant DOC_TYPE_PASSPORT_USSR = "PASSPORT_USSR";
+
     // ============================================================
-    // 3. КОПИЯ ПАСПОРТА ГРАЖДАНИНА РОССИЙСКОЙ ФЕДЕРАЦИИ (Юрисдикция 643)
+    // 3. КОПИЯ ПАСПОРТА ГРАЖДАНИНА РОССИЙСКОЙ ФЕДЕРАЦИИ
+    //    Мнемоника Гостеха: RF_PASSPORT
     // ============================================================
 
     string public constant PASSPORT_RF_COPY_SERIES = "46 13";
@@ -91,6 +102,11 @@ contract ShieldRegistry {
 
     string public constant CITIZENSHIP_RF = "РОССИЙСКАЯ ФЕДЕРАЦИЯ";
     string public constant CITIZENSHIP_RF_CODE = "643";
+
+    // Мнемоника типа документа для Гостеха
+    string public constant DOC_TYPE_RF_PASSPORT = "RF_PASSPORT";
+    // Дополнительная мнемоника для обозначения КОПИИ в вашей системе
+    string public constant DOC_TYPE_RF_PASSPORT_COPY = "RF_PASSPORT_COPY";
 
     // ============================================================
     // 4. ДАННЫЕ РЕГИСТРАЦИИ ПО МЕСТУ ЖИТЕЛЬСТВА (Юрисдикция 643)
@@ -159,12 +175,16 @@ contract ShieldRegistry {
     string public constant GEODETIC_NETWORK = "Государственная геодезическая сеть СССР 1942 года";
 
     // ============================================================
-    // 7. ЦИФРОВЫЕ ИДЕНТИФИКАТОРЫ (ВСЕ МАСКИ)
+    // 7. ЦИФРОВЫЕ ИДЕНТИФИКАТОРЫ (ВСЕ МАСКИ) с мнемониками Гостеха
     // ============================================================
 
+    // ИНН
     string public constant INN = "507702535003";
     bytes32 public constant INN_HASH = keccak256(bytes(INN));
+    // Мнемоника Гостеха для ИНН
+    string public constant DOC_TYPE_INN_FL = "INN_FL";
 
+    // СНИЛС — все возможные форматы
     string public constant SNILS_WITH_SPACES = "004-608-923 29";
     string public constant SNILS_WITH_DASHES = "004-608-923-29";
     string public constant SNILS_SOLID = "00460892329";
@@ -174,13 +194,19 @@ contract ShieldRegistry {
     bytes32 public constant SNILS_HASH_DASHES = keccak256(bytes(SNILS_WITH_DASHES));
     bytes32 public constant SNILS_HASH_SOLID = keccak256(bytes(SNILS_SOLID));
     bytes32 public constant SNILS_HASH_DOTS = keccak256(bytes(SNILS_WITH_DOTS));
+    // Мнемоника Гостеха для СНИЛС
+    string public constant DOC_TYPE_SNILS = "SNILS";
 
+    // ЕРН
     string public constant ERN_WITH_DASHES = "289-139-964-227";
     string public constant ERN_SOLID = "289139964227";
 
     bytes32 public constant ERN_HASH_DASHES = keccak256(bytes(ERN_WITH_DASHES));
     bytes32 public constant ERN_HASH_SOLID = keccak256(bytes(ERN_SOLID));
+    // Мнемоника для ЕРН (используется в вашей системе)
+    string public constant DOC_TYPE_ERN = "ERN";
 
+    // УИП(УПНО)
     string public constant UIP = "10445257450000152605202684822020";
     bytes32 public constant UIP_HASH = keccak256(bytes(UIP));
 
@@ -308,11 +334,11 @@ contract ShieldRegistry {
         bytes32 valueHash = keccak256(bytes(idValue));
         bytes memory typeBytes = bytes(idType);
 
-        if (keccak256(typeBytes) == keccak256(bytes("ИНН"))) {
+        if (keccak256(typeBytes) == keccak256(bytes("ИНН")) || keccak256(typeBytes) == keccak256(bytes(DOC_TYPE_INN_FL))) {
             return valueHash == INN_HASH;
         }
 
-        if (keccak256(typeBytes) == keccak256(bytes("СНИЛС"))) {
+        if (keccak256(typeBytes) == keccak256(bytes("СНИЛС")) || keccak256(typeBytes) == keccak256(bytes(DOC_TYPE_SNILS))) {
             return (
                 valueHash == SNILS_HASH_SPACES ||
                 valueHash == SNILS_HASH_DASHES ||
@@ -321,7 +347,7 @@ contract ShieldRegistry {
             );
         }
 
-        if (keccak256(typeBytes) == keccak256(bytes("ЕРН"))) {
+        if (keccak256(typeBytes) == keccak256(bytes("ЕРН")) || keccak256(typeBytes) == keccak256(bytes(DOC_TYPE_ERN))) {
             return (
                 valueHash == ERN_HASH_DASHES ||
                 valueHash == ERN_HASH_SOLID
@@ -343,7 +369,8 @@ contract ShieldRegistry {
         string memory certNumber,
         string memory issueDateRoman,
         string memory actRecordFull,
-        bytes32 certHash
+        bytes32 certHash,
+        string memory docType
     ) {
         return (
             BIRTH_NAME,
@@ -353,7 +380,8 @@ contract ShieldRegistry {
             CERTIFICATE_NUMBER,
             ISSUE_DATE_ROMAN,
             ACT_RECORD_FULL,
-            BIRTH_CERT_HASH
+            BIRTH_CERT_HASH,
+            DOC_TYPE_BIRTH_CERT_USSR
         );
     }
 
@@ -361,13 +389,15 @@ contract ShieldRegistry {
         string memory series1, string memory number1,
         uint256 issueYear1, uint256 issueMonth1, uint256 issueDay1,
         string memory series2, string memory number2,
-        uint256 issueYear2, uint256 issueMonth2, uint256 issueDay2
+        uint256 issueYear2, uint256 issueMonth2, uint256 issueDay2,
+        string memory docType
     ) {
         return (
             PASSPORT_1_SERIES, PASSPORT_1_NUMBER,
             PASSPORT_1_ISSUE_YEAR, PASSPORT_1_ISSUE_MONTH, PASSPORT_1_ISSUE_DAY,
             PASSPORT_2_SERIES, PASSPORT_2_NUMBER,
-            PASSPORT_2_ISSUE_YEAR, PASSPORT_2_ISSUE_MONTH, PASSPORT_2_ISSUE_DAY
+            PASSPORT_2_ISSUE_YEAR, PASSPORT_2_ISSUE_MONTH, PASSPORT_2_ISSUE_DAY,
+            DOC_TYPE_PASSPORT_USSR
         );
     }
 
@@ -382,7 +412,9 @@ contract ShieldRegistry {
         string memory issuedBy,
         string memory status,
         string memory citizenship,
-        string memory citizenshipCode
+        string memory citizenshipCode,
+        string memory docType,
+        string memory copyDocType
     ) {
         return (
             PASSPORT_RF_COPY_SERIES,
@@ -395,7 +427,9 @@ contract ShieldRegistry {
             PASSPORT_RF_COPY_ISSUED_BY,
             PASSPORT_RF_COPY_STATUS,
             CITIZENSHIP_RF,
-            CITIZENSHIP_RF_CODE
+            CITIZENSHIP_RF_CODE,
+            DOC_TYPE_RF_PASSPORT,
+            DOC_TYPE_RF_PASSPORT_COPY
         );
     }
 
@@ -491,6 +525,33 @@ contract ShieldRegistry {
 
     function isSovereign(address account) external view returns (bool) {
         return account == SOVEREIGN;
+    }
+
+    function getDocTypeMapping(string memory docType) external pure returns (string memory) {
+        bytes memory typeBytes = bytes(docType);
+        
+        if (keccak256(typeBytes) == keccak256(bytes("RF_PASSPORT"))) {
+            return "Паспорт гражданина Российской Федерации";
+        }
+        if (keccak256(typeBytes) == keccak256(bytes("RF_PASSPORT_COPY"))) {
+            return "Копия паспорта гражданина Российской Федерации";
+        }
+        if (keccak256(typeBytes) == keccak256(bytes("PASSPORT_USSR"))) {
+            return "Паспорт гражданина СССР";
+        }
+        if (keccak256(typeBytes) == keccak256(bytes("BIRTH_CERT_USSR"))) {
+            return "Свидетельство о рождении (СССР)";
+        }
+        if (keccak256(typeBytes) == keccak256(bytes("INN_FL"))) {
+            return "ИНН физического лица";
+        }
+        if (keccak256(typeBytes) == keccak256(bytes("SNILS"))) {
+            return "СНИЛС";
+        }
+        if (keccak256(typeBytes) == keccak256(bytes("ERN"))) {
+            return "ЕРН (Единый регистр населения)";
+        }
+        return "Неизвестный тип документа";
     }
 
     // ============================================================
