@@ -10,6 +10,7 @@ import "./DocTypeRegistry.sol";
  * @notice Контракт для проверки и отклонения попыток наложения долговых обязательств.
  * @dev Использует ShieldRegistry для верификации имен и идентификаторов.
  * @dev Использует DocTypeRegistry для получения параметров типов документов.
+ * @dev Проверяет статус Аллода через ShieldRegistry для усиления защиты.
  */
 contract DebtValidator {
     // ============================================================
@@ -142,7 +143,46 @@ contract DebtValidator {
     }
 
     // ============================================================
-    // 6. ГЛАВНАЯ ФУНКЦИЯ ЗАЩИТЫ
+    // 6. ПРОВЕРКА СТАТУСА АЛЛОДА
+    // ============================================================
+
+    /**
+     * @dev Проверяет, активен ли Аллод (через вызов к SovereignAllod).
+     * @return bool true, если Аллод активен.
+     */
+    function isAllodActive() public view returns (bool) {
+        address allodAddr = registry.sovereignAllodAddress();
+        if (allodAddr == address(0)) {
+            return false;
+        }
+        (bool success, bytes memory data) = allodAddr.staticcall(
+            abi.encodeWithSignature("allodDeclared()")
+        );
+        if (success && data.length == 32) {
+            return abi.decode(data, (bool));
+        }
+        return false;
+    }
+
+    /**
+     * @dev Проверяет, является ли адрес наследником Аллода.
+     */
+    function isHeirOfAllod(address account) public view returns (bool) {
+        address allodAddr = registry.sovereignAllodAddress();
+        if (allodAddr == address(0)) {
+            return false;
+        }
+        (bool success, bytes memory data) = allodAddr.staticcall(
+            abi.encodeWithSignature("isHeir(address)", account)
+        );
+        if (success && data.length == 32) {
+            return abi.decode(data, (bool));
+        }
+        return false;
+    }
+
+    // ============================================================
+    // 7. ГЛАВНАЯ ФУНКЦИЯ ЗАЩИТЫ
     // ============================================================
 
     /**
@@ -180,45 +220,64 @@ contract DebtValidator {
         );
         bool isIDValid = !isIDEmpty && isIDProtected(idType, idValue);
 
-        // 4. Формируем результат и причину
+        // 4. Проверяем статус Аллода
+        bool isAllodActive = false;
+        string memory allodReason = "";
+        address allodAddr = registry.sovereignAllodAddress();
+        if (allodAddr != address(0)) {
+            isAllodActive = isAllodActive();
+            if (isAllodActive) {
+                allodReason = " Суверен подтвердил Аллод и неделимость территории.";
+            }
+        }
+
+        // 5. Формируем результат и причину
         bool isBlocked;
         string memory reason;
 
-        // Если тип документа запрещен — блокируем сразу
+        // Если тип документа запрещен — блокируем
         if (isDocForbidden) {
             isBlocked = true;
             reason = string(abi.encodePacked(
-                "Тип документа ", docType, " запрещен для долговых обязательств"
+                "Тип документа ", docType, " запрещен для долговых обязательств."
             ));
         }
         // Если имя передано, но не защищено
         else if (!isNameEmpty && !isNameValid) {
             isBlocked = true;
             reason = string(abi.encodePacked(
-                "Имя ", debtorName, " не защищено Реестром"
+                "Имя ", debtorName, " не защищено Реестром."
             ));
         }
         // Если номер документа передан, но не соответствует Реестру
         else if (!isDocNumberEmpty && !isDocValid) {
             isBlocked = true;
             reason = string(abi.encodePacked(
-                "Документ ", docNumber, " не защищен Реестром"
+                "Документ ", docNumber, " не защищен Реестром."
             ));
         }
         // Если идентификатор передан, но не защищен
         else if (!isIDEmpty && !isIDValid) {
             isBlocked = true;
             reason = string(abi.encodePacked(
-                "Идентификатор ", idType, ":", idValue, " не защищен Реестром"
+                "Идентификатор ", idType, ":", idValue, " не защищен Реестром."
             ));
         }
-        // Если все проверки пройдены (или данные не переданы), блокируем долг по умолчанию
+        // Если все проверки пройдены, но Аллод не активен
+        else if (!isAllodActive) {
+            isBlocked = true;
+            reason = "Долговое обязательство НИЧТОЖНО. Рекомендуется активировать Аллод для усиления защиты.";
+        }
+        // Если все проверки пройдены и Аллод активен — блокируем с полным обоснованием
         else {
             isBlocked = true;
-            reason = "Долговое обязательство признано НИЧТОЖНЫМ. Суверен не является должником.";
+            reason = string(abi.encodePacked(
+                "Долговое обязательство признано НИЧТОЖНЫМ. Суверен не является должником.",
+                allodReason
+            ));
         }
 
-        // 5. Логируем попытку в историю
+        // 6. Логируем попытку в историю
         attemptHistory[msg.sender].push(DebtAttempt({
             debtorName: debtorName,
             docType: docType,
@@ -251,7 +310,7 @@ contract DebtValidator {
     }
 
     // ============================================================
-    // 7. ИНФОРМАЦИОННЫЕ ФУНКЦИИ
+    // 8. ИНФОРМАЦИОННЫЕ ФУНКЦИИ
     // ============================================================
 
     /**
@@ -275,12 +334,14 @@ contract DebtValidator {
         address sovereign,
         address registryAddr,
         address docTypeRegistryAddr,
+        address allodAddr,
         uint256 totalDebtAttempts
     ) {
         return (
             SOVEREIGN,
             registryAddress,
             docTypeRegistryAddress,
+            registry.sovereignAllodAddress(),
             totalAttempts
         );
     }
@@ -293,7 +354,7 @@ contract DebtValidator {
     }
 
     // ============================================================
-    // 8. ЗАЩИТА ОТ ПЛАТЕЖЕЙ
+    // 9. ЗАЩИТА ОТ ПЛАТЕЖЕЙ
     // ============================================================
 
     receive() external payable {
