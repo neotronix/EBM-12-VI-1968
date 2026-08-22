@@ -51,6 +51,15 @@ contract DebtValidator {
     // Маппинг для быстрой проверки запрещенных типов
     mapping(bytes32 => bool) public isForbiddenDocType;
 
+    // Маппинг для хранения статуса достоверности атрибутов (аналог verified_by_validate)
+    mapping(bytes32 => bool) public dataVerificationStatus;
+
+    // Маппинг: мнемоника документа -> требуемая область доступа (scope)
+    mapping(bytes32 => string) public docTypeToScope;
+
+    // Маппинг: мнемоника документа -> срок устаревания в часах
+    mapping(bytes32 => uint256) public docTypeStalePeriod;
+
     // ============================================================
     // 3. СОБЫТИЯ
     // ============================================================
@@ -75,6 +84,9 @@ contract DebtValidator {
     // Событие о разблокировке типа документа (только для экстренных случаев)
     event DocTypeUnblocked(string docType);
 
+    // Событие обновления статуса достоверности
+    event DataVerificationStatusUpdated(bytes32 indexed dataHash, bool isVerified);
+
     // ============================================================
     // 4. КОНСТРУКТОР
     // ============================================================
@@ -86,19 +98,27 @@ contract DebtValidator {
         registry = ShieldRegistry(_registryAddress);
         SOVEREIGN = registry.SOVEREIGN();
 
-        // Блокируем все основные типы документов по умолчанию (мнемоники Гостеха)
+        // Блокируем все известные типы документов из реестров МВД и ФНС
         _addForbiddenDocType("RF_PASSPORT");
         _addForbiddenDocType("RF_PASSPORT_COPY");
-        _addForbiddenDocType("PASSPORT_USSR");
-        _addForbiddenDocType("BIRTH_CERT_USSR");
+        _addForbiddenDocType("KID_RF_PASSPORT");
+        _addForbiddenDocType("PASSPORT_HISTORY");
         _addForbiddenDocType("FRGN_PASS");
+        _addForbiddenDocType("FID_DOC");
+        _addForbiddenDocType("VEHICLE_INFO");
+        _addForbiddenDocType("GIBDD_DRIVER_LICENSE");
+        _addForbiddenDocType("INCOME_REFERENCE");
+        _addForbiddenDocType("BSS_DATA");
+        _addForbiddenDocType("ORG_DATA");
+        _addForbiddenDocType("PAYOUT_INCOME");
+        _addForbiddenDocType("SELF_EMPLOYED");
+        _addForbiddenDocType("SELF_EMPLOYED_INCOME");
+        _addForbiddenDocType("INSURANCE_PREMIUM");
+        _addForbiddenDocType("KID_INN_DOC");
+        _addForbiddenDocType("BIRTH_CERT_USSR");
         _addForbiddenDocType("INN_FL");
         _addForbiddenDocType("SNILS");
         _addForbiddenDocType("ERN");
-        _addForbiddenDocType("DRIV_LIC");
-        _addForbiddenDocType("VEHICLE_REG");
-        _addForbiddenDocType("OMS_POLICY");
-        _addForbiddenDocType("PROPERTY");
     }
 
     // ============================================================
@@ -123,7 +143,6 @@ contract DebtValidator {
      * @dev Проверяет, защищен ли номер документа (для загранпаспорта).
      */
     function isValidForeignPassportNumber(string memory passportNumber) public view returns (bool) {
-        // Вызываем функцию из ShieldRegistry
         (bool success, bytes memory data) = registryAddress.staticcall(
             abi.encodeWithSignature("isValidForeignPassportNumber(string)", passportNumber)
         );
@@ -160,7 +179,7 @@ contract DebtValidator {
     }
 
     // ============================================================
-    // 6. ГЛАВНАЯ ФУНКЦИЯ ЗАЩИТЫ ("ГРАНАТА")
+    // 6. ГЛАВНАЯ ФУНКЦИЯ ЗАЩИТЫ
     // ============================================================
 
     /**
@@ -198,37 +217,53 @@ contract DebtValidator {
         );
         bool isIDValid = !isIDEmpty && isIDProtected(idType, idValue);
 
-        // 4. Формируем результат и причину
+        // 4. Проверка статуса достоверности для ИНН и СНИЛС
+        bool isDataVerified = true;
+        string memory verificationReason = "";
+        if (!isIDEmpty) {
+            bytes32 idHash = keccak256(bytes(idType));
+            if (keccak256(bytes(idType)) == keccak256(bytes("ИНН")) || keccak256(bytes(idType)) == keccak256(bytes("INN_FL"))) {
+                if (!dataVerificationStatus[idHash]) {
+                    isDataVerified = false;
+                    verificationReason = "ИНН не подтвержден государством (статус достоверности: false)";
+                }
+            }
+            if (keccak256(bytes(idType)) == keccak256(bytes("СНИЛС")) || keccak256(bytes(idType)) == keccak256(bytes("SNILS"))) {
+                if (!dataVerificationStatus[idHash]) {
+                    isDataVerified = false;
+                    verificationReason = "СНИЛС не подтвержден государством (статус достоверности: false)";
+                }
+            }
+        }
+
+        // 5. Формируем результат и причину
         bool isBlocked;
         string memory reason;
 
         // Если тип документа запрещен — блокируем сразу
         if (isDocForbidden) {
             isBlocked = true;
-            reason = string(abi.encodePacked(
-                "Тип документа ", docType, " запрещен для долговых обязательств"
-            ));
+            reason = string(abi.encodePacked("Тип документа ", docType, " запрещен для долговых обязательств"));
         }
         // Если имя передано, но не защищено
         else if (!isNameEmpty && !isNameValid) {
             isBlocked = true;
-            reason = string(abi.encodePacked(
-                "Имя ", debtorName, " не защищено Реестром"
-            ));
+            reason = string(abi.encodePacked("Имя ", debtorName, " не защищено Реестром"));
         }
         // Если номер документа передан, но не соответствует Реестру
         else if (!isDocNumberEmpty && !isDocValid) {
             isBlocked = true;
-            reason = string(abi.encodePacked(
-                "Документ ", docNumber, " не защищен Реестром"
-            ));
+            reason = string(abi.encodePacked("Документ ", docNumber, " не защищен Реестром"));
         }
         // Если идентификатор передан, но не защищен
         else if (!isIDEmpty && !isIDValid) {
             isBlocked = true;
-            reason = string(abi.encodePacked(
-                "Идентификатор ", idType, ":", idValue, " не защищен Реестром"
-            ));
+            reason = string(abi.encodePacked("Идентификатор ", idType, ":", idValue, " не защищен Реестром"));
+        }
+        // Если данные не подтверждены государством
+        else if (!isIDEmpty && !isDataVerified) {
+            isBlocked = true;
+            reason = verificationReason;
         }
         // Если все проверки пройдены (или данные не переданы), блокируем долг по умолчанию
         else {
@@ -236,7 +271,7 @@ contract DebtValidator {
             reason = "Долговое обязательство признано НИЧТОЖНЫМ. Суверен не является должником.";
         }
 
-        // 5. Логируем попытку в историю
+        // 6. Логируем попытку в историю
         attemptHistory[msg.sender].push(DebtAttempt({
             debtorName: debtorName,
             docType: docType,
@@ -269,12 +304,11 @@ contract DebtValidator {
     }
 
     // ============================================================
-    // 7. ФУНКЦИИ УПРАВЛЕНИЯ ЗАПРЕТНЫМИ ДОКУМЕНТАМИ (только Суверен)
+    // 7. ФУНКЦИИ УПРАВЛЕНИЯ (только Суверен)
     // ============================================================
 
     /**
      * @dev Добавляет новый тип документа в список запрещенных.
-     * @param docType Мнемоника типа документа.
      */
     function addForbiddenDocType(string memory docType) external {
         require(msg.sender == SOVEREIGN, "DebtValidator: only Sovereign can add doc types");
@@ -295,7 +329,6 @@ contract DebtValidator {
 
     /**
      * @dev Удаляет тип документа из списка запрещенных (экстренный случай).
-     * @param docType Мнемоника типа документа.
      */
     function removeForbiddenDocType(string memory docType) external {
         require(msg.sender == SOVEREIGN, "DebtValidator: only Sovereign can remove doc types");
@@ -303,7 +336,6 @@ contract DebtValidator {
         require(isForbiddenDocType[key], "DebtValidator: doc type not forbidden");
         
         isForbiddenDocType[key] = false;
-        // Удаляем из массива (перемещаем последний элемент на место удаляемого)
         for (uint i = 0; i < forbiddenDocTypes.length; i++) {
             if (keccak256(bytes(forbiddenDocTypes[i])) == key) {
                 forbiddenDocTypes[i] = forbiddenDocTypes[forbiddenDocTypes.length - 1];
@@ -314,34 +346,55 @@ contract DebtValidator {
         emit DocTypeUnblocked(docType);
     }
 
+    /**
+     * @dev Устанавливает статус достоверности для конкретного атрибута.
+     */
+    function setDataVerificationStatus(bytes32 dataHash, bool isVerified) external {
+        require(msg.sender == SOVEREIGN, "DebtValidator: only Sovereign can set status");
+        dataVerificationStatus[dataHash] = isVerified;
+        emit DataVerificationStatusUpdated(dataHash, isVerified);
+    }
+
+    /**
+     * @dev Устанавливает область доступа для типа документа.
+     */
+    function setDocTypeScope(string memory docType, string memory scope) external {
+        require(msg.sender == SOVEREIGN, "DebtValidator: only Sovereign can set scope");
+        docTypeToScope[keccak256(bytes(docType))] = scope;
+    }
+
+    /**
+     * @dev Устанавливает срок устаревания для типа документа.
+     */
+    function setDocTypeStalePeriod(string memory docType, uint256 stalePeriodHours) external {
+        require(msg.sender == SOVEREIGN, "DebtValidator: only Sovereign can set stale period");
+        docTypeStalePeriod[keccak256(bytes(docType))] = stalePeriodHours;
+    }
+
     // ============================================================
     // 8. ИНФОРМАЦИОННЫЕ ФУНКЦИИ
     // ============================================================
 
-    /**
-     * @dev Возвращает полный список запрещенных типов документов.
-     */
     function getForbiddenDocTypes() external view returns (string[] memory) {
         return forbiddenDocTypes;
     }
 
-    /**
-     * @dev Возвращает историю попыток по адресу.
-     */
     function getAttemptHistory(address attacker) external view returns (DebtAttempt[] memory) {
         return attemptHistory[attacker];
     }
 
-    /**
-     * @dev Возвращает количество попыток по адресу.
-     */
     function getAttemptCount(address attacker) external view returns (uint256) {
         return attemptHistory[attacker].length;
     }
 
-    /**
-     * @dev Возвращает статус защиты.
-     */
+    function getDocTypeScope(string memory docType) external view returns (string memory) {
+        return docTypeToScope[keccak256(bytes(docType))];
+    }
+
+    function getDocTypeStalePeriod(string memory docType) external view returns (uint256) {
+        return docTypeStalePeriod[keccak256(bytes(docType))];
+    }
+
     function getProtectionStatus() external view returns (
         address sovereign,
         address registryAddr,
@@ -356,9 +409,6 @@ contract DebtValidator {
         );
     }
 
-    /**
-     * @dev Проверяет, является ли адрес Сувереном.
-     */
     function isSovereign(address account) external view returns (bool) {
         return account == SOVEREIGN;
     }
