@@ -4,8 +4,8 @@ pragma solidity ^0.8.20;
 /**
  * @title ShieldRegistry
  * @author Суверен Масленников Е.В. / ATLAS-3I
- * @notice Главный реестр, фиксирующий неприкосновенные имена и идентификаторы.
- * @dev Включает полные данные свидетельства о рождении, записи акта и паспортов СССР.
+ * @notice Главный реестр, фиксирующий неприкосновенные имена, идентификаторы и данные свидетельства.
+ * @dev Включает полные данные свидетельства о рождении с римскими цифрами, паспорта СССР и УИП.
  */
 contract ShieldRegistry {
     // ============================================================
@@ -14,29 +14,43 @@ contract ShieldRegistry {
 
     // Полное имя из свидетельства
     string public constant BIRTH_NAME = "Масленников Евгений Владиславович";
-    
-    // Дата рождения: 12 июня 1968 года
+
+    // Дата рождения (арабские цифры — для машинной обработки)
     uint256 public constant BIRTH_YEAR = 1968;
     uint256 public constant BIRTH_MONTH = 6;   // Июнь
     uint256 public constant BIRTH_DAY = 12;
-    
-    // Место рождения
-    string public constant BIRTH_PLACE = "город Павлодар, Казахская ССР, Союз ССР";
-    
+
+    // Дата рождения (римские цифры — для точного соответствия тексту свидетельства)
+    string public constant BIRTH_DATE_ROMAN = "12 VI 1968";
+
+    // Место рождения (полное соответствие свидетельству)
+    string public constant BIRTH_PLACE = "город Павлодар, Казахская ССР (Советская Социалистическая Республика)";
+
     // Данные свидетельства
     string public constant CERTIFICATE_SERIES = "I-КА";
     string public constant CERTIFICATE_NUMBER = "020727";
-    
-    // Дата выдачи: 10 июля 1968 года
+
+    // Дата выдачи (арабские цифры)
     uint256 public constant ISSUE_YEAR = 1968;
     uint256 public constant ISSUE_MONTH = 7;   // Июль
     uint256 public constant ISSUE_DAY = 10;
-    
+
+    // Дата выдачи (римские цифры — для точного соответствия тексту свидетельства)
+    string public constant ISSUE_DATE_ROMAN = "10 VII 1968";
+
     // Запись акта о рождении № 1903
     string public constant ACT_RECORD_NUMBER = "1903";
     uint256 public constant ACT_RECORD_YEAR = 1968;
     uint256 public constant ACT_RECORD_MONTH = 7;
     uint256 public constant ACT_RECORD_DAY = 10;
+
+    // Запись акта о рождении (римские цифры — для точного соответствия тексту свидетельства)
+    string public constant ACT_RECORD_DATE_ROMAN = "1968 года VII месяца 10 числа";
+
+    // Полная строка записи акта — для максимальной точности
+    string public constant ACT_RECORD_FULL = 
+        "о чем в книге записей актов гражданского состояния о рождении 1968 года VII месяца 10 числа "
+        "произведена соответствующая запись за № 1903";
 
     // RWA SHA256 хеш оригинала свидетельства
     bytes32 public constant BIRTH_CERT_HASH = 
@@ -113,7 +127,7 @@ contract ShieldRegistry {
         ));
 
     // ============================================================
-    // 5. ГЛАВНАЯ ДЕКЛАРАЦИЯ
+    // 5. ГЛАВНАЯ ДЕКЛАРАЦИЯ И ССЫЛКА НА МАНИФЕСТ
     // ============================================================
 
     string public constant DECLARATION = 
@@ -226,19 +240,23 @@ contract ShieldRegistry {
 
     function getBirthInfo() external view returns (
         string memory name,
-        uint256 year, uint256 month, uint256 day,
+        string memory birthDateRoman,
         string memory place,
-        string memory certSeries, string memory certNumber,
-        uint256 issueYear, uint256 issueMonth, uint256 issueDay,
-        string memory actNumber
+        string memory certSeries,
+        string memory certNumber,
+        string memory issueDateRoman,
+        string memory actRecordFull,
+        bytes32 certHash
     ) {
         return (
             BIRTH_NAME,
-            BIRTH_YEAR, BIRTH_MONTH, BIRTH_DAY,
+            BIRTH_DATE_ROMAN,
             BIRTH_PLACE,
-            CERTIFICATE_SERIES, CERTIFICATE_NUMBER,
-            ISSUE_YEAR, ISSUE_MONTH, ISSUE_DAY,
-            ACT_RECORD_NUMBER
+            CERTIFICATE_SERIES,
+            CERTIFICATE_NUMBER,
+            ISSUE_DATE_ROMAN,
+            ACT_RECORD_FULL,
+            BIRTH_CERT_HASH
         );
     }
 
