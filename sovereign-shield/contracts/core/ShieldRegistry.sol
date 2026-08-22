@@ -7,7 +7,8 @@ pragma solidity ^0.8.20;
  * @notice Главный реестр, фиксирующий неприкосновенные имена, идентификаторы и документы.
  * @dev Все строковые константы сохранены в оригинальном регистре для исключения разночтений.
  * @dev Используются официальные мнемоники типов документов из Цифрового профиля (Гостех):
- *      RF_PASSPORT, FRGN_PASS, BIRTH_CERT_USSR, SNILS, INN_FL и др.
+ *      RF_PASSPORT, PASSPORT_HISTORY, FRGN_PASS, BIRTH_CERT_USSR, SNILS, INN_FL и др.
+ * @dev Связан с контрактом SovereignAllod для подтверждения суверенных прав.
  */
 contract ShieldRegistry {
     // ============================================================
@@ -322,7 +323,29 @@ contract ShieldRegistry {
     uint256 public immutable DEPLOY_TIME;
 
     // ============================================================
-    // 11. СОБЫТИЯ
+    // 11. СВЯЗЬ С КОНТРАКТОМ SOVEREIGNALLOD
+    // ============================================================
+
+    // Адрес контракта SovereignAllod
+    address public sovereignAllodAddress;
+    
+    /**
+     * @dev Устанавливает адрес контракта SovereignAllod (только для Суверена).
+     */
+    function setSovereignAllodAddress(address _sovereignAllodAddress) external {
+        require(msg.sender == SOVEREIGN, "ShieldRegistry: only Sovereign can set address");
+        sovereignAllodAddress = _sovereignAllodAddress;
+    }
+
+    /**
+     * @dev Возвращает адрес SovereignAllod.
+     */
+    function getSovereignAllodAddress() external view returns (address) {
+        return sovereignAllodAddress;
+    }
+
+    // ============================================================
+    // 12. СОБЫТИЯ
     // ============================================================
 
     event ShieldActivated(
@@ -338,8 +361,10 @@ contract ShieldRegistry {
         string reason
     );
 
+    event SovereignAllodLinked(address indexed sovereign, address allodAddress);
+
     // ============================================================
-    // 12. КОНСТРУКТОР
+    // 13. КОНСТРУКТОР
     // ============================================================
 
     constructor() {
@@ -356,7 +381,7 @@ contract ShieldRegistry {
     }
 
     // ============================================================
-    // 13. ОСНОВНЫЕ ФУНКЦИИ
+    // 14. ОСНОВНЫЕ ФУНКЦИИ
     // ============================================================
 
     function isProtectedName(string memory nameToCheck) public view returns (bool) {
@@ -420,7 +445,7 @@ contract ShieldRegistry {
     }
 
     // ============================================================
-    // 14. ФУНКЦИИ ДЛЯ РАБОТЫ С ВАРИАНТАМИ ДОКУМЕНТОВ
+    // 15. ФУНКЦИИ ДЛЯ РАБОТЫ С ВАРИАНТАМИ ДОКУМЕНТОВ
     // ============================================================
 
     /**
@@ -479,7 +504,7 @@ contract ShieldRegistry {
     }
 
     // ============================================================
-    // 15. ЕДИНАЯ ЦЕПОЧКА ИДЕНТИЧНОСТИ
+    // 16. ЕДИНАЯ ЦЕПОЧКА ИДЕНТИЧНОСТИ
     // ============================================================
 
     struct IdentityChain {
@@ -609,8 +634,7 @@ contract ShieldRegistry {
             PASSPORT_1_ISSUE_YEAR, PASSPORT_1_ISSUE_MONTH, PASSPORT_1_ISSUE_DAY,
             PASSPORT_2_SERIES, PASSPORT_2_NUMBER,
             PASSPORT_2_ISSUE_YEAR, PASSPORT_2_ISSUE_MONTH, PASSPORT_2_ISSUE_DAY,
-            DOC_TYPE_PASSPORT_HISTORY
-        );
+            DOC_TYPE_PASSPORT_HISTORY        );
     }
 
     function getPassportRFCopyInfo() external view returns (
@@ -802,7 +826,7 @@ contract ShieldRegistry {
     }
 
     // ============================================================
-    // 16. ЗАЩИТА ОТ ПЛАТЕЖЕЙ
+    // 17. ЗАЩИТА ОТ ПЛАТЕЖЕЙ
     // ============================================================
 
     receive() external payable {
