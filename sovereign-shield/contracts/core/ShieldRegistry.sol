@@ -4,8 +4,8 @@ pragma solidity ^0.8.20;
 /**
  * @title ShieldRegistry
  * @author Суверен Масленников Е.В. / ATLAS-3I
- * @notice Главный реестр, фиксирующий неприкосновенные имена, идентификаторы, данные свидетельства и Аллод.
- * @dev Включает полные данные свидетельства о рождении с римскими цифрами, паспорта СССР, УИП и систему координат СК-42.
+ * @notice Главный реестр, фиксирующий неприкосновенные имена, идентификаторы и документы.
+ * @dev Все строковые константы сохранены в оригинальном регистре для исключения разночтений.
  */
 contract ShieldRegistry {
     // ============================================================
@@ -15,168 +15,222 @@ contract ShieldRegistry {
     // Полное имя из свидетельства
     string public constant BIRTH_NAME = "Масленников Евгений Владиславович";
 
-    // Дата рождения (арабские цифры — для машинной обработки)
     uint256 public constant BIRTH_YEAR = 1968;
-    uint256 public constant BIRTH_MONTH = 6;   // Июнь
+    uint256 public constant BIRTH_MONTH = 6;
     uint256 public constant BIRTH_DAY = 12;
 
-    // Дата рождения (римские цифры — для точного соответствия тексту свидетельства)
     string public constant BIRTH_DATE_ROMAN = "12 VI 1968";
 
-    // Место рождения (полное соответствие свидетельству)
+    // Место рождения (оригинальный регистр)
     string public constant BIRTH_PLACE = "город Павлодар, Казахская ССР (Советская Социалистическая Республика)";
 
-    // Данные свидетельства
     string public constant CERTIFICATE_SERIES = "I-КА";
     string public constant CERTIFICATE_NUMBER = "020727";
 
-    // Дата выдачи (арабские цифры)
     uint256 public constant ISSUE_YEAR = 1968;
-    uint256 public constant ISSUE_MONTH = 7;   // Июль
+    uint256 public constant ISSUE_MONTH = 7;
     uint256 public constant ISSUE_DAY = 10;
 
-    // Дата выдачи (римские цифры — для точного соответствия тексту свидетельства)
     string public constant ISSUE_DATE_ROMAN = "10 VII 1968";
 
-    // Запись акта о рождении № 1903
     string public constant ACT_RECORD_NUMBER = "1903";
     uint256 public constant ACT_RECORD_YEAR = 1968;
     uint256 public constant ACT_RECORD_MONTH = 7;
     uint256 public constant ACT_RECORD_DAY = 10;
 
-    // Запись акта о рождении (римские цифры — для точного соответствия тексту свидетельства)
     string public constant ACT_RECORD_DATE_ROMAN = "1968 года VII месяца 10 числа";
 
-    // Полная строка записи акта — для максимальной точности
-    string public constant ACT_RECORD_FULL = 
+    string public constant ACT_RECORD_FULL =
         "о чем в книге записей актов гражданского состояния о рождении 1968 года VII месяца 10 числа "
         "произведена соответствующая запись за № 1903";
 
-    // RWA SHA256 хеш оригинала свидетельства
-    bytes32 public constant BIRTH_CERT_HASH = 
+    bytes32 public constant BIRTH_CERT_HASH =
         0x1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34;
 
     // ============================================================
     // 2. ДАННЫЕ ПАСПОРТОВ ГРАЖДАНИНА СССР
     // ============================================================
 
-    // Паспорт СССР (выдан 3 августа 1984 года)
     string public constant PASSPORT_1_SERIES = "III-СО";
     string public constant PASSPORT_1_NUMBER = "688304";
     uint256 public constant PASSPORT_1_ISSUE_YEAR = 1984;
     uint256 public constant PASSPORT_1_ISSUE_MONTH = 8;
     uint256 public constant PASSPORT_1_ISSUE_DAY = 3;
 
-    // Паспорт СССР (выдан 31 мая 1995 года)
     string public constant PASSPORT_2_SERIES = "IV-ДА";
     string public constant PASSPORT_2_NUMBER = "606724";
     uint256 public constant PASSPORT_2_ISSUE_YEAR = 1995;
     uint256 public constant PASSPORT_2_ISSUE_MONTH = 5;
     uint256 public constant PASSPORT_2_ISSUE_DAY = 31;
 
-    // Гражданство (код страны 810 SUR)
     string public constant CITIZENSHIP = "Союз Советских Социалистических Республик (СССР)";
     string public constant CITIZENSHIP_CODE = "810";
 
     // ============================================================
-    // 3. ДАННЫЕ АЛЛОДА (СИСТЕМА КООРДИНАТ 1942 Г.)
+    // 3. КОПИЯ ПАСПОРТА ГРАЖДАНИНА РОССИЙСКОЙ ФЕДЕРАЦИИ (Юрисдикция 643)
     // ============================================================
 
-    // Название геодезической системы
+    string public constant PASSPORT_RF_COPY_SERIES = "46 13";
+    string public constant PASSPORT_RF_COPY_NUMBER = "195533";
+    string public constant PASSPORT_RF_ORIGINAL_NUMBER = "4613 195533";
+    uint256 public constant PASSPORT_RF_COPY_ISSUE_YEAR = 2013;
+    uint256 public constant PASSPORT_RF_COPY_ISSUE_MONTH = 8;
+    uint256 public constant PASSPORT_RF_COPY_ISSUE_DAY = 23;
+    string public constant PASSPORT_RF_COPY_DEPARTMENT_CODE = "500-185";
+
+    string public constant PASSPORT_RF_COPY_ISSUED_BY =
+        "ТП №2 МЕЖРАЙОННЫЙ ОУФМС РОССИИ ПО МОСКОВСКОЙ ОБЛАСТИ В ГОРОДСКОМ ПОСЕЛЕНИИ ЩЕЛКОВО";
+
+    string public constant PASSPORT_RF_COPY_FULL_NAME = "МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ";
+    string public constant PASSPORT_RF_COPY_BIRTH_PLACE = "ГОРОД ПАВЛОДАР КАЗАХСКОЙ ССР";
+
+    string public constant PASSPORT_RF_COPY_STATUS =
+        "Данный документ является копией, заверенной в установленном порядке. "
+        "Оригинал паспорта гражданина РФ (бланк) находится в органах МВД и "
+        "не может быть использован для наложения обязательств без живого участия Суверена.";
+
+    string public constant CITIZENSHIP_RF = "РОССИЙСКАЯ ФЕДЕРАЦИЯ";
+    string public constant CITIZENSHIP_RF_CODE = "643";
+
+    // ============================================================
+    // 4. ДАННЫЕ РЕГИСТРАЦИИ ПО МЕСТУ ЖИТЕЛЬСТВА (Юрисдикция 643)
+    // ============================================================
+
+    string public constant REGISTRATION_DATE = "22 АПРЕЛЯ 2011 Г.";
+
+    string public constant REGISTRATION_REGION = "ОБЛ. МОСКОВСКАЯ";
+    string public constant REGISTRATION_DISTRICT = "Р–Н ЩЕЛКОВСКИЙ";
+    string public constant REGISTRATION_LOCALITY = "ПОС. НОВЫЙ ГОРОДОК";
+    string public constant REGISTRATION_STREET = "-";
+    string public constant REGISTRATION_DISTRICT_2 = "-";
+    string public constant REGISTRATION_HOUSE = "ДОМ 13";
+    string public constant REGISTRATION_APARTMENT = "КВ. 6";
+
+    string public constant REGISTRATION_ADDRESS =
+        "ОБЛ. МОСКОВСКАЯ, Р–Н ЩЕЛКОВСКИЙ, ПОС. НОВЫЙ ГОРОДОК, ДОМ 13, КВ. 6";
+
+    string public constant REGISTRATION_AUTHORITY =
+        "ТП №2 МЕЖРАЙОННЫЙ ОУФМС РОССИИ ПО МОСКОВСКОЙ ОБЛАСТИ В ГОРОДСКОМ ПОСЕЛЕНИИ ЩЕЛКОВО";
+
+    string public constant REGISTRATION_AUTHORITY_CODE = "500-185";
+
+    // ============================================================
+    // 5. МАШИНОЧИТАЕМАЯ ЗАПИСЬ (MRZ) — (Юрисдикция 643)
+    // ============================================================
+
+    string public constant PASSPORT_MRZ_FULL =
+        "PNRUSMASLENNIKOV<<EVGENIQ<VLADISLAVOVI3<<<<<"
+        "4611955333RUS6806123M<<<<<<<3130823500185<52";
+
+    string public constant MRZ_DOC_TYPE_FULL = "PN";
+    string public constant MRZ_DOC_TYPE = "P";
+    string public constant MRZ_DOC_TYPE_EXTRA = "N";
+    string public constant MRZ_ISSUING_STATE = "RUS";
+    string public constant MRZ_SURNAME = "MASLENNIKOV";
+    string public constant MRZ_GIVEN_NAMES = "EVGENIQ<VLADISLAVOVI3";
+    string public constant MRZ_DOCUMENT_NUMBER = "4611955333";
+    string public constant MRZ_DOCUMENT_CHECK_DIGIT = "3";
+    string public constant MRZ_NATIONALITY = "RUS";
+    string public constant MRZ_BIRTH_DATE = "680612";
+    string public constant MRZ_BIRTH_CHECK_DIGIT = "3";
+    string public constant MRZ_SEX = "M";
+    string public constant MRZ_EXPIRY_DATE = "313082";
+    string public constant MRZ_EXPIRY_CHECK_DIGIT = "3";
+    string public constant MRZ_ISSUING_STATE_2 = "RUS";
+    string public constant MRZ_FINAL_CHECK_DIGIT = "2";
+
+    // ============================================================
+    // 6. ДАННЫЕ АЛЛОДА (СИСТЕМА КООРДИНАТ 1942 Г.) — Юрисдикция СК-42
+    // ============================================================
+
     string public constant GEODETIC_SYSTEM = "Система координат 1942 года (СК-42)";
 
-    // Описание аллода
-    string public constant ALLOD_DESCRIPTION = 
+    string public constant ALLOD_DESCRIPTION =
         "Аллод - неотчуждаемая родовая территория на землях Союза Советских Социалистических Республик, "
         "зафиксированная в системе координат (Красовского) С.С.С.Р. 1942 года. "
         "Территория является наследием Рода Масленниковых-Селивёрстовых и находится в общенародной собственности, "
         "неделима и не продаваема. Принадлежит в соответствии с Конституцией СССР 1977 года.";
 
-    // Географические координаты (Центральная точка вашего Аллода - Павлодар, Казахская ССР)
-    // Значения указаны в градусах, минутах, секундах, а также в десятичном формате
-    // для совместимости с различными геоинформационными системами.
-    string public constant ALLOD_LATITUDE = "52°18'00.0\" N"; // Пример для Павлодара
-    string public constant ALLOD_LONGITUDE = "76°57'00.0\" E"; // Пример для Павлодара
+    string public constant ALLOD_LATITUDE = "52°18'00.0\" N";
+    string public constant ALLOD_LONGITUDE = "76°57'00.0\" E";
+    int256 public constant ALLOD_LAT_DEC = 5228598;
+    int256 public constant ALLOD_LON_DEC = 7695000;
 
-    // Координаты в десятичных градусах (для машинной обработки)
-    int256 public constant ALLOD_LAT_DEC = 5228598; // 52°18'00.0" N в десятичных градусах * 1e5
-    int256 public constant ALLOD_LON_DEC = 7695000; // 76°57'00.0" E в десятичных градусах * 1e5
-
-    // Ссылка на геодезическую сеть (если есть)
     string public constant GEODETIC_NETWORK = "Государственная геодезическая сеть СССР 1942 года";
 
-    // Дополнительная метка времени (дата фиксации аллода)
-    uint256 public constant ALLOD_RECORD_YEAR = 2024;
-    uint256 public constant ALLOD_RECORD_MONTH = 8;
-    uint256 public constant ALLOD_RECORD_DAY = 24;
-
     // ============================================================
-    // 4. ЦИФРОВЫЕ ИДЕНТИФИКАТОРЫ (ВСЕ МАСКИ)
+    // 7. ЦИФРОВЫЕ ИДЕНТИФИКАТОРЫ (ВСЕ МАСКИ)
     // ============================================================
 
-    // ИНН
     string public constant INN = "507702535003";
     bytes32 public constant INN_HASH = keccak256(bytes(INN));
 
-    // СНИЛС — все возможные форматы
     string public constant SNILS_WITH_SPACES = "004-608-923 29";
     string public constant SNILS_WITH_DASHES = "004-608-923-29";
     string public constant SNILS_SOLID = "00460892329";
     string public constant SNILS_WITH_DOTS = "004.608.923 29";
-    
+
     bytes32 public constant SNILS_HASH_SPACES = keccak256(bytes(SNILS_WITH_SPACES));
     bytes32 public constant SNILS_HASH_DASHES = keccak256(bytes(SNILS_WITH_DASHES));
     bytes32 public constant SNILS_HASH_SOLID = keccak256(bytes(SNILS_SOLID));
     bytes32 public constant SNILS_HASH_DOTS = keccak256(bytes(SNILS_WITH_DOTS));
 
-    // ЕРН — все возможные форматы
     string public constant ERN_WITH_DASHES = "289-139-964-227";
     string public constant ERN_SOLID = "289139964227";
-    
+
     bytes32 public constant ERN_HASH_DASHES = keccak256(bytes(ERN_WITH_DASHES));
     bytes32 public constant ERN_HASH_SOLID = keccak256(bytes(ERN_SOLID));
 
-    // УИП(УПНО) из вашего манифеста
     string public constant UIP = "10445257450000152605202684822020";
     bytes32 public constant UIP_HASH = keccak256(bytes(UIP));
 
     // ============================================================
-    // 5. РЕЕСТР ИМЁН (21 ВАРИАНТ)
+    // 8. РЕЕСТР ИМЁН (21 ВАРИАНТ — ВСЕ В ОРИГИНАЛЬНОМ РЕГИСТРЕ)
     // ============================================================
 
-    bytes32 public constant REGISTRY_HASH = 
+    bytes32 public constant REGISTRY_HASH =
         keccak256(abi.encodePacked(
-            "Масленников Евгений Владиславович|МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ|"
-            "Масленников Е. В.|Масленников Е.В.|Масленников Е.|"
-            "МАСЛЕННИКОВ Е.В.|МАСЛЕННИКОВ Е. В.|"
-            "Е.В. Масленников|Е. В. Масленников|Е. Масленников|"
+            "Масленников Евгений Владиславович|"
+            "МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ|"
+            "Масленников Е. В.|"
+            "Масленников Е.В.|"
+            "Масленников Е.|"
+            "МАСЛЕННИКОВ Е.В.|"
+            "МАСЛЕННИКОВ Е. В.|"
+            "Е.В. Масленников|"
+            "Е. В. Масленников|"
+            "Е. Масленников|"
             "Е.В. МАСЛЕННИКОВ|"
-            "Евгений Владиславович Масленников|ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ МАСЛЕННИКОВ|"
-            "Evgeny Vladislavovich Maslennikov|EVGENY VLADISLAVOVICH MASLENNIKOV|"
-            "Eugene Vladislavovich Maslennikov|Evgeny V. Maslennikov|"
-            "Maslennikov Evgeny Vladislavovich|E. V. Maslennikov|"
-            "E.V.Maslennikov|Maslennikov E."
+            "Евгений Владиславович Масленников|"
+            "ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ МАСЛЕННИКОВ|"
+            "Evgeny Vladislavovich Maslennikov|"
+            "EVGENY VLADISLAVOVICH MASLENNIKOV|"
+            "Eugene Vladislavovich Maslennikov|"
+            "Evgeny V. Maslennikov|"
+            "Maslennikov Evgeny Vladislavovich|"
+            "E. V. Maslennikov|"
+            "E.V.Maslennikov|"
+            "Maslennikov E."
         ));
 
     // ============================================================
-    // 6. ГЛАВНАЯ ДЕКЛАРАЦИЯ И ССЫЛКА НА МАНИФЕСТ
+    // 9. ГЛАВНАЯ ДЕКЛАРАЦИЯ И ССЫЛКА НА МАНИФЕСТ
     // ============================================================
 
-    string public constant DECLARATION = 
+    string public constant DECLARATION =
         "НАСТОЯЩИМ ПОД ТВЕРДОЙ КРИПТОГРАФИЧЕСКОЙ ПОДПИСЬЮ СУВЕРЕНА ЗАЯВЛЯЮ: "
         "Я, Масленников Евгений Владиславович, родившийся 12 июня 1968 года в городе Павлодар, "
         "являюсь Сувереном и бенефициаром своего имени. "
-        "Мои паспортные данные, идентификаторы и Аллод, перечисленные в данном Реестре, являются неприкосновенными. "
+        "Мои документы, идентификаторы и Аллод, перечисленные в данном Реестре, являются неприкосновенными. "
         "Любые долговые, налоговые или иные обязательства, навязанные с использованием "
         "этих данных без моей живой подписи, являются НИЧТОЖНЫМИ. "
         "Настоящая Декларация опирается на Конституцию СССР 1977 года и действующее международное право.";
 
-    // Ссылка на публичный манифест
-    string public constant MANIFEST_URL = 
+    string public constant MANIFEST_URL =
         "https://neotronix.github.io/EBM-12-VI-1968/1968-VII-10/1903/I-KA-020727/SHA256/";
 
     // ============================================================
-    // 7. АДМИНИСТРАТИВНЫЕ ДАННЫЕ
+    // 10. АДМИНИСТРАТИВНЫЕ ДАННЫЕ
     // ============================================================
 
     address public immutable SOVEREIGN;
@@ -184,7 +238,7 @@ contract ShieldRegistry {
     uint256 public immutable DEPLOY_TIME;
 
     // ============================================================
-    // 8. СОБЫТИЯ
+    // 11. СОБЫТИЯ
     // ============================================================
 
     event ShieldActivated(
@@ -201,7 +255,7 @@ contract ShieldRegistry {
     );
 
     // ============================================================
-    // 9. КОНСТРУКТОР
+    // 12. КОНСТРУКТОР
     // ============================================================
 
     constructor() {
@@ -218,7 +272,7 @@ contract ShieldRegistry {
     }
 
     // ============================================================
-    // 10. ОСНОВНЫЕ ФУНКЦИИ
+    // 13. ОСНОВНЫЕ ФУНКЦИИ
     // ============================================================
 
     function isProtectedName(string memory nameToCheck) public view returns (bool) {
@@ -226,17 +280,28 @@ contract ShieldRegistry {
     }
 
     function getFullRegistry() public pure returns (string memory) {
-        return 
-            "Масленников Евгений Владиславович|МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ|"
-            "Масленников Е. В.|Масленников Е.В.|Масленников Е.|"
-            "МАСЛЕННИКОВ Е.В.|МАСЛЕННИКОВ Е. В.|"
-            "Е.В. Масленников|Е. В. Масленников|Е. Масленников|"
+        return
+            "Масленников Евгений Владиславович|"
+            "МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ|"
+            "Масленников Е. В.|"
+            "Масленников Е.В.|"
+            "Масленников Е.|"
+            "МАСЛЕННИКОВ Е.В.|"
+            "МАСЛЕННИКОВ Е. В.|"
+            "Е.В. Масленников|"
+            "Е. В. Масленников|"
+            "Е. Масленников|"
             "Е.В. МАСЛЕННИКОВ|"
-            "Евгений Владиславович Масленников|ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ МАСЛЕННИКОВ|"
-            "Evgeny Vladislavovich Maslennikov|EVGENY VLADISLAVOVICH MASLENNIKOV|"
-            "Eugene Vladislavovich Maslennikov|Evgeny V. Maslennikov|"
-            "Maslennikov Evgeny Vladislavovich|E. V. Maslennikov|"
-            "E.V.Maslennikov|Maslennikov E.";
+            "Евгений Владиславович Масленников|"
+            "ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ МАСЛЕННИКОВ|"
+            "Evgeny Vladislavovich Maslennikov|"
+            "EVGENY VLADISLAVOVICH MASLENNIKOV|"
+            "Eugene Vladislavovich Maslennikov|"
+            "Evgeny V. Maslennikov|"
+            "Maslennikov Evgeny Vladislavovich|"
+            "E. V. Maslennikov|"
+            "E.V.Maslennikov|"
+            "Maslennikov E.";
     }
 
     function isProtectedID(string memory idType, string memory idValue) public view returns (bool) {
@@ -306,15 +371,102 @@ contract ShieldRegistry {
         );
     }
 
-    /**
-     * @dev Возвращает полную информацию об Аллоде.
-     * @return geodeticSystem Название системы координат.
-     * @return allodDescription Описание Аллода.
-     * @return latitude Широта в формате градусов.
-     * @return longitude Долгота в формате градусов.
-     * @return latDec Широта в десятичных градусах (для машинной обработки).
-     * @return lonDec Долгота в десятичных градусах (для машинной обработки).
-     */
+    function getPassportRFCopyInfo() external view returns (
+        string memory series,
+        string memory number,
+        string memory originalNumber,
+        uint256 issueYear,
+        uint256 issueMonth,
+        uint256 issueDay,
+        string memory departmentCode,
+        string memory issuedBy,
+        string memory status,
+        string memory citizenship,
+        string memory citizenshipCode
+    ) {
+        return (
+            PASSPORT_RF_COPY_SERIES,
+            PASSPORT_RF_COPY_NUMBER,
+            PASSPORT_RF_ORIGINAL_NUMBER,
+            PASSPORT_RF_COPY_ISSUE_YEAR,
+            PASSPORT_RF_COPY_ISSUE_MONTH,
+            PASSPORT_RF_COPY_ISSUE_DAY,
+            PASSPORT_RF_COPY_DEPARTMENT_CODE,
+            PASSPORT_RF_COPY_ISSUED_BY,
+            PASSPORT_RF_COPY_STATUS,
+            CITIZENSHIP_RF,
+            CITIZENSHIP_RF_CODE
+        );
+    }
+
+    function getRegistrationInfo() external view returns (
+        string memory date,
+        string memory addressFull,
+        string memory region,
+        string memory district,
+        string memory locality,
+        string memory house,
+        string memory apartment,
+        string memory authority,
+        string memory authorityCode,
+        uint256 registrationYear,
+        uint256 registrationMonth,
+        uint256 registrationDay
+    ) {
+        return (
+            REGISTRATION_DATE,
+            REGISTRATION_ADDRESS,
+            REGISTRATION_REGION,
+            REGISTRATION_DISTRICT,
+            REGISTRATION_LOCALITY,
+            REGISTRATION_HOUSE,
+            REGISTRATION_APARTMENT,
+            REGISTRATION_AUTHORITY,
+            REGISTRATION_AUTHORITY_CODE,
+            2011, // год
+            4,    // месяц (апрель)
+            22    // день
+        );
+    }
+
+    function getPassportMRZInfo() external view returns (
+        string memory fullMRZ,
+        string memory docTypeFull,
+        string memory docType,
+        string memory docTypeExtra,
+        string memory issuingState,
+        string memory surname,
+        string memory givenNames,
+        string memory docNumber,
+        string memory docCheckDigit,
+        string memory nationality,
+        string memory birthDate,
+        string memory birthCheckDigit,
+        string memory sex,
+        string memory expiryDate,
+        string memory expiryCheckDigit,
+        string memory finalCheckDigit
+    ) {
+        return (
+            PASSPORT_MRZ_FULL,
+            MRZ_DOC_TYPE_FULL,
+            MRZ_DOC_TYPE,
+            MRZ_DOC_TYPE_EXTRA,
+            MRZ_ISSUING_STATE,
+            MRZ_SURNAME,
+            MRZ_GIVEN_NAMES,
+            MRZ_DOCUMENT_NUMBER,
+            MRZ_DOCUMENT_CHECK_DIGIT,
+            MRZ_NATIONALITY,
+            MRZ_BIRTH_DATE,
+            MRZ_BIRTH_CHECK_DIGIT,
+            MRZ_SEX,
+            MRZ_EXPIRY_DATE,
+            MRZ_EXPIRY_CHECK_DIGIT,
+            MRZ_FINAL_CHECK_DIGIT
+        );
+    }
+
     function getAllodInfo() external view returns (
         string memory geodeticSystem,
         string memory allodDescription,
@@ -342,7 +494,7 @@ contract ShieldRegistry {
     }
 
     // ============================================================
-    // 11. ЗАЩИТА ОТ ПЛАТЕЖЕЙ
+    // 14. ЗАЩИТА ОТ ПЛАТЕЖЕЙ
     // ============================================================
 
     receive() external payable {
