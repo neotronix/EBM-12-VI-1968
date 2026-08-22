@@ -27,22 +27,48 @@ contract ShieldRegistry {
     // Место рождения (оригинальный регистр)
     string public constant BIRTH_PLACE = "город Павлодар, Казахская ССР (Советская Социалистическая Республика)";
 
+    // ---- Данные свидетельства (оригинал) ----
     string public constant CERTIFICATE_SERIES = "I-КА";
     string public constant CERTIFICATE_NUMBER = "020727";
 
+    // ---- Все возможные варианты написания свидетельства I-КА 020727 ----
+    string[] public constant CERTIFICATE_VARIANTS = [
+        "I-КА 020727",      // Оригинальный формат (с пробелом и дефисом)
+        "IКА 020727",       // Без дефиса, с пробелом (кириллица)
+        "IКА020727",        // Без дефиса и пробела (кириллица)
+        "ИКА020727",        // Без дефиса и пробела (русская "А")
+        "ИКА 020727",       // С пробелом, без дефиса (русская "А")
+        "IKA020727",        // Без дефиса и пробела (латиница)
+        "IKA 020727"        // С пробелом, без дефиса (латиница)
+    ];
+
+    // ---- Хеши всех вариантов для быстрой проверки ----
+    bytes32 public constant CERT_HASH_ORIGINAL = keccak256(bytes(CERTIFICATE_VARIANTS[0]));
+    bytes32 public constant CERT_HASH_NO_DASH_SPACE_CYR = keccak256(bytes(CERTIFICATE_VARIANTS[1]));
+    bytes32 public constant CERT_HASH_NO_DASH_NO_SPACE_CYR = keccak256(bytes(CERTIFICATE_VARIANTS[2]));
+    bytes32 public constant CERT_HASH_RUS_A_NO_SPACE = keccak256(bytes(CERTIFICATE_VARIANTS[3]));
+    bytes32 public constant CERT_HASH_RUS_A_SPACE = keccak256(bytes(CERTIFICATE_VARIANTS[4]));
+    bytes32 public constant CERT_HASH_LAT_A_NO_SPACE = keccak256(bytes(CERTIFICATE_VARIANTS[5]));
+    bytes32 public constant CERT_HASH_LAT_A_SPACE = keccak256(bytes(CERTIFICATE_VARIANTS[6]));
+
+    // ---- Мнемоника типа документа для Гостеха ----
+    string public constant DOC_TYPE_BIRTH_CERT_USSR = "BIRTH_CERT_USSR";
+
+    // Дата выдачи (арабские цифры)
     uint256 public constant ISSUE_YEAR = 1968;
     uint256 public constant ISSUE_MONTH = 7;
     uint256 public constant ISSUE_DAY = 10;
 
+    // Дата выдачи (римские цифры)
     string public constant ISSUE_DATE_ROMAN = "10 VII 1968";
 
+    // Запись акта о рождении
     string public constant ACT_RECORD_NUMBER = "1903";
     uint256 public constant ACT_RECORD_YEAR = 1968;
     uint256 public constant ACT_RECORD_MONTH = 7;
     uint256 public constant ACT_RECORD_DAY = 10;
 
     string public constant ACT_RECORD_DATE_ROMAN = "1968 года VII месяца 10 числа";
-
     string public constant ACT_RECORD_FULL =
         "о чем в книге записей актов гражданского состояния о рождении 1968 года VII месяца 10 числа "
         "произведена соответствующая запись за № 1903";
@@ -50,31 +76,46 @@ contract ShieldRegistry {
     bytes32 public constant BIRTH_CERT_HASH =
         0x1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34;
 
-    // Мнемоника типа документа для Гостеха
-    string public constant DOC_TYPE_BIRTH_CERT_USSR = "BIRTH_CERT_USSR";
-
     // ============================================================
     // 2. ДАННЫЕ ПАСПОРТОВ ГРАЖДАНИНА СССР
     //    Мнемоника Гостеха: PASSPORT_USSR (история выданных паспортов)
     // ============================================================
 
+    // ---- Паспорт СССР №1 (выдан 3 августа 1984 года) ----
     string public constant PASSPORT_1_SERIES = "III-СО";
     string public constant PASSPORT_1_NUMBER = "688304";
     uint256 public constant PASSPORT_1_ISSUE_YEAR = 1984;
     uint256 public constant PASSPORT_1_ISSUE_MONTH = 8;
     uint256 public constant PASSPORT_1_ISSUE_DAY = 3;
 
+    // ---- Паспорт СССР №2 (выдан 31 мая 1995 года) ----
     string public constant PASSPORT_2_SERIES = "IV-ДА";
     string public constant PASSPORT_2_NUMBER = "606724";
     uint256 public constant PASSPORT_2_ISSUE_YEAR = 1995;
     uint256 public constant PASSPORT_2_ISSUE_MONTH = 5;
     uint256 public constant PASSPORT_2_ISSUE_DAY = 31;
 
+    // ---- Все возможные варианты написания паспорта №2 (IV-ДА 606724) ----
+    string[] public constant PASSPORT_2_VARIANTS = [
+        "IV-ДА 606724",      // Оригинальный формат (с пробелом и дефисом)
+        "4ДА606724",         // Без дефиса и пробела (кириллица)
+        "4DA606724",         // Без дефиса и пробела (латиница)
+        "4ДА 606724",        // С пробелом, без дефиса (кириллица)
+        "4DA 606724"         // С пробелом, без дефиса (латиница)
+    ];
+
+    // ---- Хеши всех вариантов для быстрой проверки ----
+    bytes32 public constant PASSPORT_2_HASH_ORIGINAL = keccak256(bytes(PASSPORT_2_VARIANTS[0]));
+    bytes32 public constant PASSPORT_2_HASH_NO_DASH_CYR = keccak256(bytes(PASSPORT_2_VARIANTS[1]));
+    bytes32 public constant PASSPORT_2_HASH_NO_DASH_LAT = keccak256(bytes(PASSPORT_2_VARIANTS[2]));
+    bytes32 public constant PASSPORT_2_HASH_SPACE_CYR = keccak256(bytes(PASSPORT_2_VARIANTS[3]));
+    bytes32 public constant PASSPORT_2_HASH_SPACE_LAT = keccak256(bytes(PASSPORT_2_VARIANTS[4]));
+
+    // ---- Мнемоника типа документа для Гостеха ----
+    string public constant DOC_TYPE_PASSPORT_USSR = "PASSPORT_USSR";
+
     string public constant CITIZENSHIP = "Союз Советских Социалистических Республик (СССР)";
     string public constant CITIZENSHIP_CODE = "810";
-
-    // Мнемоника типа документа для Гостеха
-    string public constant DOC_TYPE_PASSPORT_USSR = "PASSPORT_USSR";
 
     // ============================================================
     // 3. КОПИЯ ПАСПОРТА ГРАЖДАНИНА РОССИЙСКОЙ ФЕДЕРАЦИИ
@@ -181,7 +222,6 @@ contract ShieldRegistry {
     // ИНН
     string public constant INN = "507702535003";
     bytes32 public constant INN_HASH = keccak256(bytes(INN));
-    // Мнемоника Гостеха для ИНН
     string public constant DOC_TYPE_INN_FL = "INN_FL";
 
     // СНИЛС — все возможные форматы
@@ -194,7 +234,6 @@ contract ShieldRegistry {
     bytes32 public constant SNILS_HASH_DASHES = keccak256(bytes(SNILS_WITH_DASHES));
     bytes32 public constant SNILS_HASH_SOLID = keccak256(bytes(SNILS_SOLID));
     bytes32 public constant SNILS_HASH_DOTS = keccak256(bytes(SNILS_WITH_DOTS));
-    // Мнемоника Гостеха для СНИЛС
     string public constant DOC_TYPE_SNILS = "SNILS";
 
     // ЕРН
@@ -203,7 +242,6 @@ contract ShieldRegistry {
 
     bytes32 public constant ERN_HASH_DASHES = keccak256(bytes(ERN_WITH_DASHES));
     bytes32 public constant ERN_HASH_SOLID = keccak256(bytes(ERN_SOLID));
-    // Мнемоника для ЕРН (используется в вашей системе)
     string public constant DOC_TYPE_ERN = "ERN";
 
     // УИП(УПНО)
@@ -361,6 +399,137 @@ contract ShieldRegistry {
         return false;
     }
 
+    // ============================================================
+    // 14. ФУНКЦИИ ДЛЯ РАБОТЫ С ВАРИАНТАМИ ДОКУМЕНТОВ
+    // ============================================================
+
+    /**
+     * @dev Проверяет, является ли переданная строка допустимым вариантом свидетельства I-КА 020727.
+     */
+    function isValidCertificateVariant(string memory certString) public pure returns (bool) {
+        bytes32 hash = keccak256(bytes(certString));
+        return (
+            hash == CERT_HASH_ORIGINAL ||
+            hash == CERT_HASH_NO_DASH_SPACE_CYR ||
+            hash == CERT_HASH_NO_DASH_NO_SPACE_CYR ||
+            hash == CERT_HASH_RUS_A_NO_SPACE ||
+            hash == CERT_HASH_RUS_A_SPACE ||
+            hash == CERT_HASH_LAT_A_NO_SPACE ||
+            hash == CERT_HASH_LAT_A_SPACE
+        );
+    }
+
+    /**
+     * @dev Возвращает все допустимые варианты написания свидетельства.
+     */
+    function getCertificateVariants() external pure returns (string[] memory) {
+        return CERTIFICATE_VARIANTS;
+    }
+
+    /**
+     * @dev Проверяет, является ли переданная строка допустимым вариантом паспорта №2 (IV-ДА 606724).
+     */
+    function isValidPassport2Variant(string memory passportString) public pure returns (bool) {
+        bytes32 hash = keccak256(bytes(passportString));
+        return (
+            hash == PASSPORT_2_HASH_ORIGINAL ||
+            hash == PASSPORT_2_HASH_NO_DASH_CYR ||
+            hash == PASSPORT_2_HASH_NO_DASH_LAT ||
+            hash == PASSPORT_2_HASH_SPACE_CYR ||
+            hash == PASSPORT_2_HASH_SPACE_LAT
+        );
+    }
+
+    /**
+     * @dev Возвращает все допустимые варианты написания паспорта №2.
+     */
+    function getPassportVariants() external pure returns (string[] memory) {
+        return PASSPORT_2_VARIANTS;
+    }
+
+    // ============================================================
+    // 15. ЕДИНАЯ ЦЕПОЧКА ИДЕНТИЧНОСТИ
+    // ============================================================
+
+    struct IdentityChain {
+        string name;
+        string nameCaps;
+        string nameLatin;
+        string[] nameVariants;
+        string birthCertSeries;
+        string birthCertNumber;
+        string[] birthCertVariants;
+        string passport1Series;
+        string passport1Number;
+        string passport2Series;
+        string passport2Number;
+        string[] passport2Variants;
+        string docTypeBirth;
+        string docTypePassport;
+        bytes32 identityHash;
+    }
+
+    /**
+     * @dev Возвращает единую цепочку идентичности.
+     */
+    function getIdentityChain() external pure returns (IdentityChain memory) {
+        string[21] memory nameVariants = [
+            "Масленников Евгений Владиславович",
+            "МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ",
+            "Масленников Е. В.",
+            "Масленников Е.В.",
+            "Масленников Е.",
+            "МАСЛЕННИКОВ Е.В.",
+            "МАСЛЕННИКОВ Е. В.",
+            "Е.В. Масленников",
+            "Е. В. Масленников",
+            "Е. Масленников",
+            "Е.В. МАСЛЕННИКОВ",
+            "Евгений Владиславович Масленников",
+            "ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ МАСЛЕННИКОВ",
+            "Evgeny Vladislavovich Maslennikov",
+            "EVGENY VLADISLAVOVICH MASLENNIKOV",
+            "Eugene Vladislavovich Maslennikov",
+            "Evgeny V. Maslennikov",
+            "Maslennikov Evgeny Vladislavovich",
+            "E. V. Maslennikov",
+            "E.V.Maslennikov",
+            "Maslennikov E."
+        ];
+
+        string[] memory variants = new string[](21);
+        for (uint i = 0; i < 21; i++) {
+            variants[i] = nameVariants[i];
+        }
+
+        return IdentityChain({
+            name: BIRTH_NAME,
+            nameCaps: PASSPORT_RF_COPY_FULL_NAME,
+            nameLatin: MRZ_SURNAME,
+            nameVariants: variants,
+            birthCertSeries: CERTIFICATE_SERIES,
+            birthCertNumber: CERTIFICATE_NUMBER,
+            birthCertVariants: CERTIFICATE_VARIANTS,
+            passport1Series: PASSPORT_1_SERIES,
+            passport1Number: PASSPORT_1_NUMBER,
+            passport2Series: PASSPORT_2_SERIES,
+            passport2Number: PASSPORT_2_NUMBER,
+            passport2Variants: PASSPORT_2_VARIANTS,
+            docTypeBirth: DOC_TYPE_BIRTH_CERT_USSR,
+            docTypePassport: DOC_TYPE_PASSPORT_USSR,
+            identityHash: keccak256(abi.encodePacked(
+                BIRTH_NAME,
+                PASSPORT_RF_COPY_FULL_NAME,
+                MRZ_SURNAME,
+                CERTIFICATE_SERIES, CERTIFICATE_NUMBER,
+                PASSPORT_1_SERIES, PASSPORT_1_NUMBER,
+                PASSPORT_2_SERIES, PASSPORT_2_NUMBER,
+                DOC_TYPE_BIRTH_CERT_USSR,
+                DOC_TYPE_PASSPORT_USSR
+            ))
+        });
+    }
+
     function getBirthInfo() external view returns (
         string memory name,
         string memory birthDateRoman,
@@ -457,9 +626,9 @@ contract ShieldRegistry {
             REGISTRATION_APARTMENT,
             REGISTRATION_AUTHORITY,
             REGISTRATION_AUTHORITY_CODE,
-            2011, // год
-            4,    // месяц (апрель)
-            22    // день
+            2011,
+            4,
+            22
         );
     }
 
@@ -555,7 +724,7 @@ contract ShieldRegistry {
     }
 
     // ============================================================
-    // 14. ЗАЩИТА ОТ ПЛАТЕЖЕЙ
+    // 16. ЗАЩИТА ОТ ПЛАТЕЖЕЙ
     // ============================================================
 
     receive() external payable {
