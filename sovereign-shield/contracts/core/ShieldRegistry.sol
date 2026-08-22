@@ -78,7 +78,7 @@ contract ShieldRegistry {
 
     // ============================================================
     // 2. ДАННЫЕ ПАСПОРТОВ ГРАЖДАНИНА СССР
-    //    Мнемоника Гостеха: PASSPORT_USSR (история выданных паспортов)
+    //    Мнемоника Гостеха: PASSPORT_HISTORY
     // ============================================================
 
     // ---- Паспорт СССР №1 (выдан 3 августа 1984 года) ----
@@ -112,7 +112,7 @@ contract ShieldRegistry {
     bytes32 public constant PASSPORT_2_HASH_SPACE_LAT = keccak256(bytes(PASSPORT_2_VARIANTS[4]));
 
     // ---- Мнемоника типа документа для Гостеха ----
-    string public constant DOC_TYPE_PASSPORT_USSR = "PASSPORT_USSR";
+    string public constant DOC_TYPE_PASSPORT_HISTORY = "PASSPORT_HISTORY";
 
     string public constant CITIZENSHIP = "Союз Советских Социалистических Республик (СССР)";
     string public constant CITIZENSHIP_CODE = "810";
@@ -500,7 +500,7 @@ contract ShieldRegistry {
         string foreignPassportSurname;
         string foreignPassportGivenName;
         string docTypeBirth;
-        string docTypePassport;
+        string docTypePassportHistory;
         string docTypeForeignPassport;
         bytes32 identityHash;
     }
@@ -556,7 +556,7 @@ contract ShieldRegistry {
             foreignPassportSurname: FRGN_PASS_SURNAME,
             foreignPassportGivenName: FRGN_PASS_GIVEN_NAME,
             docTypeBirth: DOC_TYPE_BIRTH_CERT_USSR,
-            docTypePassport: DOC_TYPE_PASSPORT_USSR,
+            docTypePassportHistory: DOC_TYPE_PASSPORT_HISTORY,
             docTypeForeignPassport: DOC_TYPE_FRGN_PASS,
             identityHash: keccak256(abi.encodePacked(
                 BIRTH_NAME,
@@ -567,7 +567,7 @@ contract ShieldRegistry {
                 PASSPORT_2_SERIES, PASSPORT_2_NUMBER,
                 FRGN_PASS_NUMBER,
                 DOC_TYPE_BIRTH_CERT_USSR,
-                DOC_TYPE_PASSPORT_USSR,
+                DOC_TYPE_PASSPORT_HISTORY,
                 DOC_TYPE_FRGN_PASS
             ))
         );
@@ -609,7 +609,7 @@ contract ShieldRegistry {
             PASSPORT_1_ISSUE_YEAR, PASSPORT_1_ISSUE_MONTH, PASSPORT_1_ISSUE_DAY,
             PASSPORT_2_SERIES, PASSPORT_2_NUMBER,
             PASSPORT_2_ISSUE_YEAR, PASSPORT_2_ISSUE_MONTH, PASSPORT_2_ISSUE_DAY,
-            DOC_TYPE_PASSPORT_USSR
+            DOC_TYPE_PASSPORT_HISTORY
         );
     }
 
@@ -780,8 +780,8 @@ contract ShieldRegistry {
         if (keccak256(typeBytes) == keccak256(bytes("RF_PASSPORT_COPY"))) {
             return "Копия паспорта гражданина Российской Федерации";
         }
-        if (keccak256(typeBytes) == keccak256(bytes("PASSPORT_USSR"))) {
-            return "Паспорт гражданина СССР";
+        if (keccak256(typeBytes) == keccak256(bytes("PASSPORT_HISTORY"))) {
+            return "История выданных паспортов (СССР, РФ, загран)";
         }
         if (keccak256(typeBytes) == keccak256(bytes("BIRTH_CERT_USSR"))) {
             return "Свидетельство о рождении (СССР)";
