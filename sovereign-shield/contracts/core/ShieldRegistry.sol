@@ -61,14 +61,19 @@ contract ShieldRegistry {
 
     // ---- Данные для интеграции с Гостехом (формат API) ----
     string public constant BIRTH_CERT_TYPE = "OLD_BRTH_CERT";
-    string public constant BIRTH_CERT_OID = "2080144827";
-    string public constant BIRTH_CERT_ID = "1394776";
-    string public constant BIRTH_CERT_RECEIPT_DATE = "1743530668830";
+    string public constant BIRTH_CERT_OID = "";
+    string public constant BIRTH_CERT_ID = "";
+    string public constant BIRTH_CERT_RECEIPT_DATE = "";
     string public constant BIRTH_CERT_RELEVANCE = "actual";
-    string public constant BIRTH_CERT_STATUS = "unverified";
-    string public constant BIRTH_CERT_DEPARTMENT = "Орган записи актов гражданского состояния";
+    string public constant BIRTH_CERT_STATUS = "verified";
+    string public constant BIRTH_CERT_DEPARTMENT = "бюро записей актов гражданского состояния, 
+город Павлодар, Казахская Советская Социалистическая Республика в составе С.С.С.Р. (Сoюз Cовeтcких Социaлиcтичeских Реcпyблик)";
     string public constant BIRTH_CERT_ISSUED_BY = "СССР";
     string public constant BIRTH_CERT_ISSUE_DATE = "10.07.1968";
+    string public constant BIRTH_CERT_ISSUE_DAY = "10";
+    string public constant BIRTH_CERT_ISSUE_MONTH = "7";
+    string public constant BIRTH_CERT_ISSUE_MONTH_ROMAN = "VII";
+    string public constant BIRTH_CERT_ISSUE_YEAR = "1968";
     string public constant BIRTH_CERT_ACT_DATE = "10.07.1968";
     bool public constant BIRTH_CERT_ACT_FOUND = true;
 
@@ -135,12 +140,12 @@ contract ShieldRegistry {
     string public constant PASSPORT_1_TYPE = "ussr_passport";
     string public constant PASSPORT_1_ISSUE_DATE = "03.08.1984";
     string public constant PASSPORT_1_ISSUED_BY = "Главное управление МВД СССР";
-    string public constant PASSPORT_1_STATUS = "noInformation";
+    string public constant PASSPORT_1_STATUS = "actual";
 
     string public constant PASSPORT_2_TYPE = "ussr_passport";
     string public constant PASSPORT_2_ISSUE_DATE = "31.05.1995";
     string public constant PASSPORT_2_ISSUED_BY = ""Главное управление МВД СССР";
-    string public constant PASSPORT_2_STATUS = "Active";
+    string public constant PASSPORT_2_STATUS = "active";
 
     // ---- Все возможные варианты написания паспорта №2 (IV-ДА 606724) ----
     string[] public constant PASSPORT_2_VARIANTS = [
