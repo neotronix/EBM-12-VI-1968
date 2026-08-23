@@ -46,7 +46,7 @@ contract ShieldRegistry {
     uint256 public constant BIRTH_YEAR = 1968;
     uint256 public constant BIRTH_MONTH = 6;
     uint256 public constant BIRTH_DAY = 12;
-    string public constant BIRTH_DATE_ROMAN = "12 VI 1968";
+    string public constant BIRTH_MONTH_ROMAN = "VI";
     string public constant BIRTH_DATE_FULL = "Двенадцатого июня тысяча девятьсот шестьдесят восьмого года";
     string public constant BIRTH_PLACE = "город Павлодар, Казахская Советская Социалистическая Республика в составе С.С.С.Р. (Союз Советских Социалистических Республик)";
 
@@ -140,7 +140,7 @@ contract ShieldRegistry {
     string public constant PASSPORT_2_TYPE = "ussr_passport";
     string public constant PASSPORT_2_ISSUE_DATE = "31.05.1995";
     string public constant PASSPORT_2_ISSUED_BY = ""Главное управление МВД СССР";
-    string public constant PASSPORT_2_STATUS = "noInformation";
+    string public constant PASSPORT_2_STATUS = "Active";
 
     // ---- Все возможные варианты написания паспорта №2 (IV-ДА 606724) ----
     string[] public constant PASSPORT_2_VARIANTS = [
