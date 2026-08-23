@@ -103,8 +103,8 @@ contract ShieldRegistry {
     string public constant ALLOD_DESCRIPTION =
         "Аллод - неотчуждаемая родовая территория на землях Союза Советских Социалистических Республик, "
         "зафиксированная в системе координат (Красовского) С.С.С.Р. 1942 года. "
-        "Территория является наследием Рода Масленниковых-Селивёрстовых, земля находится в общенародной собственности (всенародное достояние), "
-        "неделима и не продаваема. Принадлежит в соответствии с Конституцией (основной закон) Сoюзa Cовeтcких Социaлиcтичeских Реcпyблик 1936 года 
+        "Территория является наследием Рода Масленниковых-Селивёрстовых, земля находится в общенародной собственности (всенародное достояние)
+неделима и не продаваема, в соответствии с Конституцией (основной закон) Сoюзa Cовeтcких Социaлиcтичeских Реcпyблик 1936 года 
 с обновлениями и дополнениями 1947 года.";
     string public constant ALLOD_LATITUDE = "52°18'00.0\" N";
     string public constant ALLOD_LONGITUDE = "76°57'00.0\" E";
@@ -135,12 +135,12 @@ contract ShieldRegistry {
     // ---- Данные для интеграции с Гостехом (формат API) ----
     string public constant PASSPORT_1_TYPE = "ussr_passport";
     string public constant PASSPORT_1_ISSUE_DATE = "03.08.1984";
-    string public constant PASSPORT_1_ISSUED_BY = "Главное управление по вопросам миграции МВД России";
+    string public constant PASSPORT_1_ISSUED_BY = "Главное управление МВД СССР";
     string public constant PASSPORT_1_STATUS = "noInformation";
 
     string public constant PASSPORT_2_TYPE = "ussr_passport";
     string public constant PASSPORT_2_ISSUE_DATE = "31.05.1995";
-    string public constant PASSPORT_2_ISSUED_BY = "Главное управление по вопросам миграции МВД России";
+    string public constant PASSPORT_2_ISSUED_BY = ""Главное управление МВД СССР";
     string public constant PASSPORT_2_STATUS = "noInformation";
 
     // ---- Все возможные варианты написания паспорта №2 (IV-ДА 606724) ----
