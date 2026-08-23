@@ -130,7 +130,7 @@ contract ShieldRegistry {
     string public constant PASSPORT_RF_FULL_NUMBER_SOLID = "4613195533";
 
     // ---- Данные для интеграции с Гостехом ----
-    string public constant ESIA_OID = "1077132659";
+    string public constant ESIA_OID = "";
     string public constant PASSPORT_RF_ISSUE_DATE = "23.08.2013";
     string public constant PASSPORT_RF_DEPARTMENT_CODE = "500-185";
     string public constant PASSPORT_RF_ISSUED_BY = "ТП №2 МЕЖРАЙОННЫЙ ОУФМС РОССИИ ПО МОСКОВСКОЙ ОБЛАСТИ В ГОРОДСКОМ ПОСЕЛЕНИИ ЩЕЛКОВО";
