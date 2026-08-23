@@ -10,12 +10,27 @@ pragma solidity ^0.8.20;
  * @dev Связан с контрактом SovereignAllod для подтверждения суверенных прав.
  * @dev Включает поля для интеграции с государственными API (oid, статус достоверности).
  * @dev Хранит данные в двух форматах: оригинальном (римском) и формате Гостеха.
+ * @dev Фиксирует статус Суверена как Первичного кредитора и конечного бенефициарного владельца.
  */
 contract ShieldRegistry {
+    // ============================================================
+    // 0. ДЕКЛАРАЦИЯ СТАТУСА СУВЕРЕНА
+    // ============================================================
+
+    string public constant SOVEREIGN_STATUS = 
+        "Евгений Владиславович Масленников-Селивёрстов"
+        "Принято за ценность оригинальным первичным кредитором и конечным бенефициарным владельцем. "
+        "Первичный кредитор евгений масленников. "
+        "Конечный выгодоприобретатель (бенефициар) Евгений Владиславович Масленников.";
+
     // ============================================================
     // 1. ДАННЫЕ СВИДЕТЕЛЬСТВА О РОЖДЕНИИ (I-КА № 020727)
     //    Мнемоника Гостеха: OLD_BRTH_CERT / BIRTH_CERT_USSR
     // ============================================================
+
+    // ---- Полная оригинальная формулировка (как в документе) ----
+    string public constant BIRTH_RECORD_FULL = 
+        "Масленников Евгений Владиславович родился 12 VI 1968 Двенадцатого июня тысяча девятьсот шестьдесят восьмого года, место рождения ребенка: город Павлодар, Казахская Советская Социалистическая Республика в составе Союза Советских Социалистических Республик, о чем в государственной книге записей актов гражданского состояния 1968 года VII месяца 10 числа произведена соответствующая запись акта о рождении за № 1903; Родители: отец: Масленников Владислав Иванович родился 10 августа 1938 года, русский; мать: Масленникова (Селивёрстова) Светлана Николаевна родилась 16 августа 1945 года, русская; свидетельство о рождении I-КА № 020727 выдано бюро записей актов гражданского состояния 10 VII 1968 года; Принято за ценность оригинальным первичным кредитором и конечным бенефициарным владельцем. Первичный кредитор евгений масленников. Конечный выгодоприобретатель (бенефициар) Евгений Владиславович Масленников.";
 
     // ---- Оригинальные данные (исторический формат) ----
     string public constant BIRTH_NAME = "Масленников Евгений Владиславович";
@@ -23,20 +38,24 @@ contract ShieldRegistry {
     uint256 public constant BIRTH_MONTH = 6;
     uint256 public constant BIRTH_DAY = 12;
     string public constant BIRTH_DATE_ROMAN = "12 VI 1968";
-    string public constant BIRTH_PLACE = "город Павлодар, Казахская ССР (Советская Социалистическая Республика)";
+    string public constant BIRTH_DATE_FULL = "Двенадцатого июня тысяча девятьсот шестьдесят восьмого года";
+    string public constant BIRTH_PLACE = "город Павлодар, Казахская Советская Социалистическая Республика в составе Союза Советских Социалистических Республик";
 
     string public constant CERTIFICATE_SERIES = "I-КА";
     string public constant CERTIFICATE_NUMBER = "020727";
     string public constant ISSUE_DATE_ROMAN = "10 VII 1968";
     string public constant ACT_RECORD_DATE_ROMAN = "1968 года VII месяца 10 числа";
     string public constant ACT_RECORD_NUMBER = "1903";
+    string public constant ACT_RECORD_FULL = 
+        "о чем в государственной книге записей актов гражданского состояния "
+        "1968 года VII месяца 10 числа произведена соответствующая запись акта о рождении за № 1903";
     bytes32 public constant BIRTH_CERT_HASH = 0x1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34;
 
     // ---- Данные для интеграции с Гостехом (формат API) ----
     string public constant BIRTH_CERT_TYPE = "OLD_BRTH_CERT";
     string public constant BIRTH_CERT_OID = "2080144827";
     string public constant BIRTH_CERT_ID = "1394776";
-    string public constant BIRTH_CERT_RECEIPT_DATE = "1743530668830"; // Unix timestamp в миллисекундах
+    string public constant BIRTH_CERT_RECEIPT_DATE = "1743530668830";
     string public constant BIRTH_CERT_RELEVANCE = "actual";
     string public constant BIRTH_CERT_STATUS = "unverified";
     string public constant BIRTH_CERT_DEPARTMENT = "Орган записи актов гражданского состояния";
@@ -136,14 +155,14 @@ contract ShieldRegistry {
     string public constant PASSPORT_RF_ISSUED_BY = "ТП №2 МЕЖРАЙОННЫЙ ОУФМС РОССИИ ПО МОСКОВСКОЙ ОБЛАСТИ В ГОРОДСКОМ ПОСЕЛЕНИИ ЩЕЛКОВО";
     string public constant PASSPORT_RF_STATUS = "verified_by_validate";
     string public constant PASSPORT_RF_RELEVANCE = "actual";
-    string public constant PASSPORT_RF_DEPARTMENT_DOC = "МВД России";
+    string public constant PASSPORT_RF_DEPARTMENT_DOC = "ТП №2 МЕЖРАЙОННЫЙ ОУФМС РОССИИ ПО МОСКОВСКОЙ ОБЛАСТИ В ГОРОДСКОМ ПОСЕЛЕНИИ ЩЕЛКОВО";
 
     string public constant PASSPORT_RF_FULL_NAME = "МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ";
     string public constant PASSPORT_RF_BIRTH_PLACE = "ГОРОД ПАВЛОДАР КАЗАХСКОЙ ССР";
 
     string public constant PASSPORT_RF_COPY_STATUS =
-        "Данный документ является копией, заверенной в установленном порядке. "
-        "Оригинал паспорта гражданина РФ (бланк) находится в органах МВД и "
+        "Данный документ является копией, заверенной в установленном порядке мастичной печатью для копий документов. "
+        "Оригинал паспорта гражданина РФ (бланк) находится в форме 1П в органах МВД и "
         "не может быть использован для наложения обязательств без живого участия Суверена.";
 
     string public constant CITIZENSHIP_RF = "РОССИЙСКАЯ ФЕДЕРАЦИЯ";
@@ -468,6 +487,8 @@ contract ShieldRegistry {
     // ============================================================
 
     struct IdentityChain {
+        string sovereignStatus;
+        string birthRecordFull;
         string name;
         string nameCaps;
         string nameLatin;
@@ -553,6 +574,8 @@ contract ShieldRegistry {
         }
 
         return IdentityChain({
+            sovereignStatus: SOVEREIGN_STATUS,
+            birthRecordFull: BIRTH_RECORD_FULL,
             name: BIRTH_NAME,
             nameCaps: PASSPORT_RF_FULL_NAME,
             nameLatin: MRZ_SURNAME,
@@ -599,6 +622,7 @@ contract ShieldRegistry {
                 PASSPORT_RF_SERIES, PASSPORT_RF_NUMBER,
                 FRGN_PASS_NUMBER,
                 ESIA_OID,
+                SOVEREIGN_STATUS,
                 DOC_TYPE_BIRTH_CERT_USSR,
                 DOC_TYPE_PASSPORT_HISTORY,
                 DOC_TYPE_FRGN_PASS,
@@ -611,9 +635,14 @@ contract ShieldRegistry {
     // 17. ИНФОРМАЦИОННЫЕ ФУНКЦИИ
     // ============================================================
 
+    function getSovereignStatus() external view returns (string memory) {
+        return SOVEREIGN_STATUS;
+    }
+
     function getBirthInfo() external view returns (
         string memory name,
         string memory birthDateRoman,
+        string memory birthDateFull,
         string memory place,
         string memory certSeries,
         string memory certNumber,
@@ -635,6 +664,7 @@ contract ShieldRegistry {
         return (
             BIRTH_NAME,
             BIRTH_DATE_ROMAN,
+            BIRTH_DATE_FULL,
             BIRTH_PLACE,
             CERTIFICATE_SERIES,
             CERTIFICATE_NUMBER,
