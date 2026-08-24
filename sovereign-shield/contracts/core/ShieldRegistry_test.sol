@@ -42,12 +42,12 @@ contract ShieldRegistry {
         Date birthDate;
         string birthDateFullText;
         string birthPlace;
-        string certificateSeries;
-        string certificateSeriesRoman;
-        string certificateNumber;
-        string certificateNumberRoman;
-        string[] certificateSeriesVariants;
-        string[] certificateNumberVariants;
+        string BirthCertificateSeries;
+        string BirthCertificateSeriesRoman;
+        string BirthCertificateNumber;
+        string BirthCertificateNumberRoman;
+        string[] BirthCertificateSeriesVariants;
+        string[] BirthCertificateNumberVariants;
         Date issueDate;
         string issuedBy;
         string actRecordNumber;
