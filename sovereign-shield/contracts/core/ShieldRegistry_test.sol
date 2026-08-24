@@ -103,11 +103,12 @@ contract ShieldRegistry {
     function _initBirthCertificate() private {
         birthCertificate = BirthCertificateUSSR({
             docType: "OLD_BRTH_CERT",
-            oid: "2080144827",
-            id: "1394776",
+            oid: "",
+            id: "",
             relevance: "actual",
-            status: "unverified",
-            departmentDoc: "Орган записи актов гражданского состояния",
+            status: "verified",
+            departmentDoc: "бюро записей актов гражданского состояния, 
+город Павлодар, Казахская Советская Социалистическая Республика в составе Сoюзa Cовeтcких Социaлиcтичeских Реcпyблик (С.С.С.Р.)",
             firstName: "Евгений",
             lastName: "Масленников",
             middleName: "Владиславович",
@@ -144,7 +145,8 @@ contract ShieldRegistry {
                 year: 1968,
                 fullText: "10 VII 1968"
             }),
-            actRecordFullText: "о чем в государственной книге записей актов гражданского состояния 1968 года VII месяца 10 числа произведена соответствующая запись акта о рождении за № 1903",
+            actRecordFullText: "о чем в государственной книге записей актов гражданского состояния 1968 года VII месяца 10 числа 
+произведена соответствующая запись акта о рождении за № 1903",
             actRecordFound: true,
             hash: 0x1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34
         });
