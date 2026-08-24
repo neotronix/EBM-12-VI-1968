@@ -34,8 +34,7 @@ RWA SHA256 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<br>
 имя <span class="font-violet">Евгений</span><br>
 отчество <span class="font-violet">Владиславович</span><br>
 родился <span class="font-violet">12 VI 1968 г. двенадцатого июня тысяча девятьсот шестьдесят восьмого</span> года<br>
-место рождения ребенка: город <span class="font-violet">Павлодар</span> [СК-42 52°18N 76°57E]<br>
-о чем в книге записей актов гражданского состояния о рождении <span class="font-violet">1968</span> года <span class="font-violet">VII</span> месяца
+место рождения ребенка: город <span class="font-violet">Павлодар</span> [СК-42 52°18N 76°57E] о чем в книге записей актов гражданского состояния о рождении <span class="font-violet">1968</span> года <span class="font-violet">VII</span> месяца
  <span class="font-violet">10</span>
  числа произведена соответствующая запись за № <span class="font-violet">1903</span> <i>(на основании медицинского свидетельства о живом рождении ребенка)</i><br>
 </div>	
