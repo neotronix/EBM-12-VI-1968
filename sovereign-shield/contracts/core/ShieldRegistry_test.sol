@@ -81,15 +81,15 @@ contract ShieldRegistry {
     }
 
     // ---- Функция для получения массива вариантов серии ----
-    function _getCertificateVariants() private pure returns (string[] memory) {
+    function _getBirthCertificateSeriesVariants() private pure returns (string[] memory) {
         string[7] memory variants = [
-            "I-КА 020727",
-            "IКА 020727",
-            "IКА020727",
-            "ИКА020727",
-            "ИКА 020727",
-            "IKA020727",
-            "IKA 020727"
+            "I-КА",
+            "IКА",
+            "IКА",
+            "ИКА",
+            "ИКА",
+            "IKA",
+            "IKA"
         ];
 
         string[] memory result = new string[](7);
@@ -113,7 +113,6 @@ contract ShieldRegistry {
             lastName: "Масленников",
             middleName: "Владиславович",
             fullName: "Масленников Евгений Владиславович",
-            fullNameCaps: "МАСЛЕННИКОВ ЕВГЕНИЙ ВЛАДИСЛАВОВИЧ",
             birthDate: Date({
                 day: 12,
                 month: 6,
@@ -121,15 +120,14 @@ contract ShieldRegistry {
                 year: 1968,
                 fullText: "12 VI 1968"
             }),
-            birthDateFullText: "Двенадцатого июня тысяча девятьсот шестьдесят восьмого года",
+            birthDateFullText: "родился Двенадцатого июня тысяча девятьсот шестьдесят восьмого года",
             birthPlace: "город Павлодар, Казахская Советская Социалистическая Республика в составе Союза Советских Социалистических Республик (С.С.С.Р.)",
-            certificateSeries: "I",
-            certificateSeriesRoman: "I-КА",
-            certificateNumber: "020727",
-            certificateNumberRoman: "020727", // В данном случае номер арабский
-            certificateSeriesVariants: _getCertificateVariants(),
-            certificateNumberVariants: new string[](0),
-            issueDate: Date({
+            BirthCertificateSeries: "I-КА",
+            BirthCertificateSeriesRoman: "I-КА",
+            BirthCertificateNumber: "020727",
+            BirthCertificateSeriesVariants: _getBirthCertificateSeriesVariants(),
+            BirthCertificateNumberVariants: new string[](0),
+            BirthCertificateIssueDate: Date({
                 day: 10,
                 month: 7,
                 monthRoman: "VII",
@@ -137,17 +135,17 @@ contract ShieldRegistry {
                 fullText: "10 VII 1968"
             }),
             issuedBy: "СССР",
-            actRecordNumber: "1903",
-            actRecordDate: Date({
+            BirthActRecordNumber: "1903",
+            BirthActRecordDate: Date({
                 day: 10,
                 month: 7,
                 monthRoman: "VII",
                 year: 1968,
                 fullText: "10 VII 1968"
             }),
-            actRecordFullText: "о чем в государственной книге записей актов гражданского состояния 1968 года VII месяца 10 числа 
+            BirthActRecordFullText: "о чем в государственной книге записей актов гражданского состояния 1968 года VII месяца 10 числа 
 произведена соответствующая запись акта о рождении за № 1903",
-            actRecordFound: true,
+            BirthActRecordFound: true,
             hash: 0x1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34
         });
     }
