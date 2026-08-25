@@ -170,6 +170,7 @@ contract ShieldRegistry {
     string[] public constant PASSPORT_2_VARIANTS = [
         "IV-ДА",
         "IVДА",
+        "IVDA",
         "4ДА606724",
         "4DA606724",
         "4ДА",
