@@ -168,11 +168,12 @@ contract ShieldRegistry {
     uint256 public constant PASSPORT_2_ISSUE_DAY = 31;
 
     string[] public constant PASSPORT_2_VARIANTS = [
-        "IV-ДА 606724",
+        "IV-ДА",
+        "IVДА",
         "4ДА606724",
         "4DA606724",
-        "4ДА 606724",
-        "4DA 606724"
+        "4ДА",
+        "4DA"
     ];
 
     // ---- Данные для интеграции с Гостехом (формат API) ----
