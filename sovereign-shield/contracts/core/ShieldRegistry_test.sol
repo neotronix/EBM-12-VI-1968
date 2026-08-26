@@ -146,7 +146,7 @@ contract ShieldRegistry {
             BirthActRecordFullText: "о чем в государственной книге записей актов гражданского состояния 1968 года VII месяца 10 числа 
 произведена соответствующая запись акта о рождении за № 1903",
             BirthActRecordFound: true,
-            hash: 0x1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34
+            hash: 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34
         });
     }
 
