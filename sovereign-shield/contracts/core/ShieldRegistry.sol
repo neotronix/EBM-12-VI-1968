@@ -57,7 +57,7 @@ contract ShieldRegistry {
     string public constant ACT_RECORD_NUMBER = "1903";
     string public constant ACT_RECORD_FULL = 
         "о чем в государственной книге записей актов гражданского состояния 1968 года VII месяца 10 числа произведена соответствующая запись акта о рождении за № 1903";
-    bytes32 public constant BIRTH_CERT_HASH = 0x1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34;
+    bytes32 public constant BIRTH_CERT_HASH = 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34;
 
     // ---- Данные для интеграции с Гостехом (формат API) ----
     string public constant BIRTH_CERT_TYPE = "OLD_BRTH_CERT";
