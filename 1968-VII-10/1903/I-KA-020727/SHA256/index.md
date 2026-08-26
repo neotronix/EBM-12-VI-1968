@@ -42,9 +42,9 @@
   </details>
 <details><summary>Паспорт</summary>
 	• паспорт гражданина <span class="font-red" style="color:#800000; font-style: normal;">Союза Советских Социалистических Республик</span> (С.С.С.Р. СК-42, код страны 002 – 810 SUR)<br>III-СО № 688304 выдан 3/VIII 1984 года.<br>
-	U+2022 паспорт гражданина <span class="font-red" style="color:#800000; font-style: normal;">Союза Советских Социалистических Республик</span> (С.С.С.Р. СК-42, код страны 002 – 810 SUR)<br>IV-ДА № 606724 выдан 31 мая 1995 года.<br>
+	&#8226 паспорт гражданина <span class="font-red" style="color:#800000; font-style: normal;">Союза Советских Социалистических Республик</span> (С.С.С.Р. СК-42, код страны 002 – 810 SUR)<br>IV-ДА № 606724 выдан 31 мая 1995 года.<br>
 	<div class="font-red" style="width:100%;"><i>Принято за ценность оригинальным бенефициарным владельцем.</i></div>
-	гражданство: <span class="font-red" style="color:#800000">Союз Советских Социалистических Республик (С.С.С.Р.)</span>, СК-42, код страны: 002 – 810 SUR
+	&bull гражданство: <span class="font-red" style="color:#800000">Союз Советских Социалистических Республик (С.С.С.Р.)</span>, СК-42, код страны: 002 – 810 SUR
 <p></p></details>
 <details><summary>Hash RWA SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<p></p></details>Sum: 19680612366227476
 <p></p>
