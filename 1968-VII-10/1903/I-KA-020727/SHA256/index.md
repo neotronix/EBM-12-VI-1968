@@ -55,7 +55,7 @@
 статьи 2, 17, 18 Конституции; ст. 19, 1012, 421, 1195, 413, 329 ГК  
 <p></p>
 <!-- Google - css hex color -->
-<a href="https://github.com/neotronix/EBM-12-VI-1968/tree/main/" target="_blank">I-КА</a> <a href="https://github.com/neotronix/EBM-12-VI-1968/tree/main/1968-VII-10/1903/I-KA-020727/SHA256" target="_blank">020727</a> © <a href="https://neotronix.github.io/EBM-12-VI-1968/" target="_blank">neotronix technology</a><br>
+<a href="https://github.com/neotronix/EBM-12-VI-1968/tree/main/" target="_blank">I-КА</a> <a href="https://github.com/neotronix/EBM-12-VI-1968/tree/main/1968-VII-10/1903/I-KA-020727/SHA256/index.md" target="_blank">020727</a> © <a href="https://neotronix.github.io/EBM-12-VI-1968/" target="_blank">neotronix technology</a><br>
 index.md SHA1 926f2ddfdfd038eff1f16761aea435d3ac1c1b1f
 </body>
 </html>
