@@ -20,7 +20,7 @@
 имя <span class="font-violet">Евгений</span><br>
 отчество <span class="font-violet">Владиславович</span><br>
 родился <span class="font-violet">12 VI 1968 г. двенадцатого июня тысяча девятьсот шестьдесят восьмого</span> года<br>
-место рождения ребенка: город <span class="font-violet">Павлодар</span> [СК-42 52°18N 76°57E] о чем в книге записей актов гражданского состояния о рождении <span class="font-violet">1968</span> года <span class="font-violet">VII</span> месяца
+место рождения ребенка: город <span class="font-violet">Павлодар</span> [СК-42 <a href="https://sk42.org/map/ru/?lat=52.28631763476505&lng=76.93849503993988" target="_blank">52°18N 76°57E</a>] о чем в книге записей актов гражданского состояния о рождении <span class="font-violet">1968</span> года <span class="font-violet">VII</span> месяца
  <span class="font-violet">10</span>
  числа произведена соответствующая запись за № <span class="font-violet">1903</span> <i>(на основании медицинского свидетельства о живом рождении ребенка)</i><br>
 </div>	
