@@ -36,7 +36,7 @@
   
   <div class="box-container" style="border: 0px solid black; float:; text-align:center;">
       <span class="font-red" style="color:#800000; font-style:normal;">Союз Советских Социалистических Республик</span> (С.С.С.Р. U.S.S.R. СК-42, код страны 002 – 810 SUR)<br><span style="color:#355e00">Казахская ССР</span> (Советская Социалистическая Республика)<br>
-		RWA SHA256: <a href="https://github.com/neotronix/EBM-12-VI-1968/tree/main/sovereign-shield/contracts/core/ShieldRegistry.sol" target="_blank">1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</a><br>
+		Real World Assets (RWA) hash SHA-256: <a href="https://github.com/neotronix/EBM-12-VI-1968/tree/main/sovereign-shield/contracts/core/ShieldRegistry.sol" target="_blank">1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34</a><br>
 УИП(УПНО) <a href="/EBM-12-VI-1968/cheque/#10445257450000152605202684822020">10445257450000152605202684822020</a>
       </div>
   </details>
@@ -46,7 +46,7 @@
 	• IV-ДА № 606724 выдан 31 мая 1995 года.<br>
 	<div class="font-red" style="width:100%;"><i>Принято за ценность оригинальным бенефициарным владельцем.</i></div>
 <p></p></details>
-<details><summary>Real World Assets (RWA) hash SHA256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<p></p></details>Sum: 19680612366227476
+<details><summary>Real World Assets (RWA) hash SHA-256</summary> 1F8DE3FDC2C61647E697243FC05CDB83C12CCC75987658D584690928427CFA34<p></p></details>Sum: 19680612366227476
 <p></p>
 24 день месяца апреля 2020 года 7528 лѣта<br>
 все права защищены © без ущерба, без предубеждения, без передачи прав. UCC 1-308.4
