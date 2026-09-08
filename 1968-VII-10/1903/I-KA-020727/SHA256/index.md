@@ -53,7 +53,9 @@
 <details><summary>Электропочта</summary>eugene.maslennikov@gmail.com<br>neotronix.technology@gmail.com<p></p></details><details><summary>Реквизиты</summary>USDT (Tron TRX) TUPUY7EKQHu54sQABs8sHNxUKhGL3qsxR8<br>BNB (BEP20) 0x41617b6636c9a7b6fef16c568df71d615a177796<br>USDT (TON) UQABctUVjqfwWdwwQImcs7Xc9n0lpFatOvtMA1vTuIZN7dF2<br>USDT (SOL) 2owiMAwxEjnS5duiHePNppvgu3WN1eEv9aETUHQYm7GR<br><br>USDT (TON) UQAR_Ad0AM6VgBFolic4WiENYw2fo_l8XvsK0DZn66udhHZa<br>BNB (BEP20) 0x80511a9098b7E27665D2229385E1A93f4e6FD176<br> USDT (Tron TRX) TUbka9PUBTG6TT7q3iNrjgJYu7bCEVaDH9<br>USDT (SOL) DeNt4Cs1XWUytMu7C4sqacSFuwvR3jj4HaXoRePSAz7X</details>
 <p></p>
 Настоящая запизьделана в 24 день месяца мая 2026 года 7535 лѣта <!-- SHA1 926f2ddfdfd038eff1f16761aea435d3ac1c1b1f --><br>
-статьи 2, 17, 18 Конституции; ст. 19, 1012, 421, 1195, 413, 329 ГК  
+<a href="https://constitution.garant.ru/history/ussr-rsfsr/1937/" target="_blank">Конституция (Основной Закон) Российской Советской Федеративной Социалистической Республики 21 января 1937 года)</a>;<br>
+<a href="https://constitution.garant.ru/history/ussr-rsfsr/1978/" target="_blank">Конституция (Основной закон) Российской Федерации - России 12 апреля 1978 года)</a><br>
+статьи 2, 17, 18 Конституции; ст. 19, 1012, 421, 1195, 413, 329 ГК
 <p></p>
 <!-- Google - css hex color -->
 <a href="https://github.com/neotronix/EBM-12-VI-1968/tree/main/" target="_blank">I-КА</a> <a href="https://github.com/neotronix/EBM-12-VI-1968/tree/main/1968-VII-10/1903/I-KA-020727/SHA256/index.md" target="_blank">020727</a> © <a href="https://neotronix.github.io/EBM-12-VI-1968/" target="_blank">neotronix technology</a><br>
