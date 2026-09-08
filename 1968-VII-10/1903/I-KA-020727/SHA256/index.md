@@ -54,7 +54,7 @@
 <p></p>
 Настоящая запизьделана в 24 день месяца мая 2026 года 7535 лѣта <!-- SHA1 926f2ddfdfd038eff1f16761aea435d3ac1c1b1f --><br>
 <a href="https://constitution.garant.ru/history/ussr-rsfsr/1937/" target="_blank">Конституция</a> (Основной Закон) Российской Советской Федеративной Социалистической Республики 21 января 1937 года;<br>
-<a href="https://constitution.garant.ru/history/ussr-rsfsr/1978/" target="_blank">Конституция</a> (Основной закон) Российской Федерации - России * 12 апреля 1978 года<br>
+<a href="https://constitution.garant.ru/history/ussr-rsfsr/1978/" target="_blank">Конституция</a> (Основной закон) * Российской Федерации - России 12 апреля 1978 года<br>
 статьи 2, 17, 18 Конституции; ст. 19, 1012, 421, 1195, 413, 329 ГК
 <p></p>
 <!-- Google - css hex color -->
